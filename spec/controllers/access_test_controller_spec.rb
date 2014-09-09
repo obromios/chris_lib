@@ -2,12 +2,6 @@ require 'spec_helper'
 
 describe AccessTestController do
 
-  it "not signed in" do
-    include TestAccess
-    actions=[:index,:edit,:update]
-    it_should_route_to('signin_path')
-  end
-
   describe "GET 'index'" do
     it "returns http success" do
       get 'index'

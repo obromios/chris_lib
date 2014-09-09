@@ -1,8 +1,11 @@
 module TestAccess
+		def temp
+			'adfa'
+		end
 	module ExampleMethods
 	end
 	module ExampleGroupMethods
-    def it_should_route_to(path,actions)
+	  def it_should_route_to(path,actions)
 			actions.each do |a|
 				it "should deny access to #{a}" do
 	  			get a, id: 1
