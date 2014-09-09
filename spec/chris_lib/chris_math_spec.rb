@@ -6,6 +6,6 @@ describe ChrisMath  do
 		it{expect(1.factorial).to eq 1}
 		it{expect(0.factorial).to eq nil}
 		it{expect((-5).factorial).to eq nil}
-		it{expect{40.factorial}.to raise_error "Number too large"}
+		it{expect{21.factorial}.to raise_error "Number too large"}
 	end
 end

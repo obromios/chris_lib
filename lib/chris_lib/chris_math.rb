@@ -1,7 +1,7 @@
 Integer.class_eval do
 	def factorial
 		n=self
-		if n > 39
+		if n > 20
 			raise "Number too large"
 		else
 			(1..n).inject {|prod, i| prod * i}
