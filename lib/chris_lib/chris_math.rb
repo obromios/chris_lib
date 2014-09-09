@@ -8,6 +8,20 @@ Integer.class_eval do
 		end
 	end
 end
+Array.class_eval do
+	def mean
+		raise "Length must be greater than 1" if count < 2 
+		sum = self.inject { |s,v| s + v}
+		sum/count
+	end
+	def var
+		raise "Length must be greater than 1" if count < 2 
+		m = self.mean
+		sum = self.inject { |s,v| s + (v**2 - m**2)}
+		m=count-1
+		sum.to_f/m
+	end
+end
 
 module ChrisMath
 	
