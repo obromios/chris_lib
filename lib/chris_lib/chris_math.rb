@@ -1,3 +1,14 @@
+Integer.class_eval do
+	def factorial
+		n=self
+		if n > 39
+			raise "Number too large"
+		else
+			(1..n).inject {|prod, i| prod * i}
+		end
+	end
+end
+
 module ChrisMath
 	
 	include Math

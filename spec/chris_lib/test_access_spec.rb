@@ -1,15 +1,15 @@
 require 'spec_helper'
 require 'pp'
 describe AccessTestController, type: :controller do
-  it "should retun index" do
+  pending "should retun index" do
   	include TestAccess
-  	expect(temp).to "adfa1"
+  	expect(TestAccess.temp).to eq "adfa1"
   	get :index
   	response.should be_success
   end
-	it "not signed in" do
+	pending "not signed in" do
 		include TestAccess
 		actions=[:index,:edit,:update]
-		it_should_route_to('signin_path')
+		TestAccess::ExampleGroupMethods.it_should_route_to('signin_path',actions)
 	end
 end
