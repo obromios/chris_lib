@@ -1,12 +1,21 @@
 # encoding: utf-8
 require 'spec_helper'
 require 'pp'
-describe "ChrisMath" do
+describe "ChrisMath Module" do
 	include ChrisMath
 	describe "combinatorial" do
 		it{expect(combinatorial(50,49)).to eq 50}
 		it{expect(combinatorial(31,31)).to eq 1}
 		it{expect(combinatorial(8,4)).to eq 70}
+	end
+	describe "gaussian_rand" do
+	describe "should have the right mean" do
+			let(:mu){1}
+			let(:sigma){2}
+			let(:gaussian){(1..900).to_a.map!{gaussian_rand(mu,sigma)}}
+			let(:tol){5.0*sigma/30}
+			it{expect(gaussian.mean).to be_within(tol).of(mu)}
+		end
 	end
 end
 describe "Integer Extensions"  do
