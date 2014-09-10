@@ -1,6 +1,17 @@
 # encoding: utf-8
 require 'spec_helper'
-describe ChrisMath  do
+require 'pp'
+describe :combinatorial do
+	it "comb" do
+		include ChrisMath
+		expect(combinatorial(5, 4).to eq 6)
+	end
+	it "temp" do
+		include ChrisMath
+		expect(temp).to eq "temp"
+	end
+end
+describe "ChrisMath"  do
 	describe :factorial do
 		it{expect(5.factorial).to eq 120}
 		it{expect(1.factorial).to eq 1}
@@ -20,7 +31,7 @@ describe ChrisMath  do
 		let(:uniform){(1..900).to_a.map!{rand()}}
 		let(:mu){0.5}
 		let(:sigma){0.2887}
-		let(:tol){(5*sigma/30)**2}
+		let(:tol){(10*sigma**2/30)}
 		it{expect(uniform.var).to be_within(tol).of(sigma**2)}
 		it{expect{[1].var}.to raise_error "Length must be greater than 1"}
 	end
