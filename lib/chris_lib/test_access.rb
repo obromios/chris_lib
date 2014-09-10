@@ -1,7 +1,4 @@
 module TestAccess
-	def temp
-		'temp here'
-	end
 	module ExampleMethods
 	end
 	module ExampleGroupMethods

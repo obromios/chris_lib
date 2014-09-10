@@ -1,17 +1,15 @@
 # encoding: utf-8
 require 'spec_helper'
 require 'pp'
-describe :combinatorial do
+describe "ChrisMath" do
 	include ChrisMath
-	it "comb" do
-		expect(combinatorial(5, 4)).to eq 5
-	end
-	it "temp" do
-		include ChrisMath
-		expect(temp).to eq "temp"
+	describe "combinatorial" do
+		it{expect(combinatorial(50,49)).to eq 50}
+		it{expect(combinatorial(31,31)).to eq 1}
+		it{expect(combinatorial(8,4)).to eq 70}
 	end
 end
-describe "ChrisMath"  do
+describe "Integer Extensions"  do
 	describe :factorial do
 		it{expect(5.factorial).to eq 120}
 		it{expect(1.factorial).to eq 1}
@@ -19,6 +17,8 @@ describe "ChrisMath"  do
 		it{expect((-5).factorial).to eq nil}
 		it{expect{21.factorial}.to raise_error "Number too large"}
 	end
+end
+describe "Array Extensions" do
 	describe :mean do
 		let(:uniform){(1..900).to_a.map!{rand()}}
 		let(:mu){0.5}

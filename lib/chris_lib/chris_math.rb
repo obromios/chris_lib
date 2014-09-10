@@ -26,10 +26,6 @@ end
 module ChrisMath
 	
 	include Math
-
-	def temp
-		"temp"
-	end
 	
 	def bi_gaussian_rand
 		u1 = rand()
