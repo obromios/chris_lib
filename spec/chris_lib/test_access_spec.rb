@@ -5,9 +5,13 @@ describe "temp tests" do
   it{expect(temp).to eq 'temp here'}
 end
 describe AccessTestController, type: :controller do
-	pending "not signed in" do
-		include TestAccess
-		actions=[:index,:edit,:update]
+  it "allows access to index" do
+    get :index
+    response.should be_success
+  end
+	it "block access to rest" do
+	  include TestAccess
+		actions=[:edit,:update]
 	  it_should_route_to('signin_path',actions)
 	end
 end

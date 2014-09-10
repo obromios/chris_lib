@@ -40,5 +40,4 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
   config.include(TestAccess, :type => :controllers)
-  config.include(ChrisMath, :type => :controllers)
 end

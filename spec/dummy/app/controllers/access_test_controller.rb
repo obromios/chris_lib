@@ -1,5 +1,6 @@
 class AccessTestController < ApplicationController
   def index
+
   end
 
   def edit

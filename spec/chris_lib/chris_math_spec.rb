@@ -2,9 +2,9 @@
 require 'spec_helper'
 require 'pp'
 describe :combinatorial do
+	include ChrisMath
 	it "comb" do
-		include ChrisMath
-		expect(combinatorial(5, 4).to eq 6)
+		expect(combinatorial(5, 4)).to eq 5
 	end
 	it "temp" do
 		include ChrisMath
