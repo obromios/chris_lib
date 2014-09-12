@@ -1,4 +1,12 @@
 module DateExt
+  # To format a date, use <tt>date.charmians_format</tt>
+  # on any Date object.
+  #
+  #   class Date
+  #     charmians_format
+  #   end
+  #
+  # If using a DateTime object, need to convert to date i.e. <tt>datetime.to_date.charmians_format
   Date.class_eval do
     def us_format
       "#{strftime('%B')} #{day.to_s}, #{year.to_s}"
@@ -7,14 +15,6 @@ module DateExt
     	"#{strftime('%A')}, #{strftime('%B')} #{day.to_s}, #{year.to_s}"
     end
     def charmians_format
-      # To format a date, use <tt>date.charmians_format</tt>
-      # on any Date object.
-      #
-      #   class Date
-      #     charmians_format
-      #   end
-      #
-      # If using a DateTime object, need to convert to date i.e. <tt>datetime.to_date.charmians_format
     	d=cardinalation(day)
     	"#{strftime('%A')}, #{d} #{strftime('%B')}, #{year.to_s}"
     end
