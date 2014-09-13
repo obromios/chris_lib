@@ -6,7 +6,7 @@ module DateExt
   #     charmians_format
   #   end
   #
-  # If using a DateTime object, need to convert to date i.e. <tt>datetime.to_date.charmians_format
+  # If using a DateTime object, need to convert to date i.e. <tt>datetime.to_date.charmians_format</tt>.
   Date.class_eval do
     def us_format
       "#{strftime('%B')} #{day.to_s}, #{year.to_s}"
