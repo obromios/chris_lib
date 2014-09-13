@@ -17,14 +17,12 @@ And then execute:
 
 ## Usage
 
-	# To format a date, use `date.charmians_format`
-  # on any Date object.
-  ```
-     class Date
+To format a date in the Australian way, use `date.charmians_format` on any Date object.
+```
+  class Date
        charmians_format
-     end
-  ```
-  # If using a DateTime object, need to convert to date i.e. `datetime.to_date.charmians_format`.
+  end
+```
 
 ## Contributing
 There is no need to contribute, but in case you feel you have to...
