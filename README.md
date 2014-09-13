@@ -17,7 +17,7 @@ And then execute:
 
 ## Usage
 
-To format a date in the Australian way, use `date.charmians_format` on any Date object.
+To format a date in the Australian way, use `date.charmians_format` on a Date object.
 ```
   class Date
        charmians_format
