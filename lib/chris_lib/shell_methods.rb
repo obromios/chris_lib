@@ -3,10 +3,11 @@ module ShellMethods
 		time=Time.now
 		time.day.to_s + time.month.to_s + time.year.to_s + '-' + time.hour.to_s + time.min.to_s
 	end
-	def same_db_version
+	def same_db_version(remote: nil)
+		destination=(remote.nil? ? nil : "--remote #{remote}")
 		lv=`rake db:version`;lr=$?.success?
 		puts "Local version: ",lv
-		hv=`heroku run rake db:version`;hr=$?.success?
+		hv=`heroku run rake db:version #{destination}`;hr=$?.success?
 		puts hv
 		key='version: '
 		nl=lv.index(key)+9
@@ -32,18 +33,21 @@ module ShellMethods
 		end
 		system('cd $OLDPWD')
 	end
-	def migrate_if_necessary
-		puts "Checking local and remote databases have same version and migrates if necessary"
-		if same_db_version
-		 	puts "No migration necessary"
-		elsif ARGV[0] == '--no_migrate'
+	def migrate_if_necessary(remote: nil,migrate: nil)
+		if migrate == '--no_migrate'
 			puts "No migration will be performed due to --no_migrate option"
 		else
-		 	puts "Warning, different db versions"
-		 	puts "Press m<cr> to migrate or q<cr> to exit"
-		 	ans=$stdin.gets()
-		 	exit 2 if ans[0]!='m'
-		 	system("heroku run rake db:migrate")
+			destination=(remote.nil? ? nil : "--remote #{remote}")
+			puts "Checking local and remote databases have same version and migrates if necessary"
+			if same_db_version(remote: remote)
+			 	puts "No migration necessary"
+			else
+			 	puts "Warning, different db versions"
+			 	puts "Press m<cr> to migrate or q<cr> to exit"
+			 	ans=$stdin.gets()
+			 	exit 2 if ans[0]!='m'
+			 	system("heroku run rake db:migrate #{destination}")
+			end
 		end
 	end
 end

@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = %q{This library is for personal use only at this stage}
   s.license     = "MIT"
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.add_dependency "rails", "~> 4.1.5"
+  s.add_dependency "rails", "~> 3.2.19"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
 end
