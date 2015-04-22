@@ -8,10 +8,10 @@ module TestAccess
 	module ExampleMethods
 	end
 	module ExampleGroupMethods
-	  def it_should_route_to(path,actions)
+	  def it_should_route_to(path,actions,id=1)
 			actions.each do |a|
 				it "should deny access to #{a}" do
-	  			get a, id: 1
+	  			get a, id: id
 	  			response.should redirect_to send(path)
 	  		end
 			end
