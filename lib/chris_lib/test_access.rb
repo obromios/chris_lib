@@ -8,11 +8,17 @@ module TestAccess
 	module ExampleMethods
 	end
 	module ExampleGroupMethods
-	  def it_should_route_to(path,actions,id=1)
+	  def it_should_route_to(path,actions,flash_message=nil)
 			actions.each do |a|
 				it "should deny access to #{a}" do
-	  			get a, id: id
+	  			get a, id: 1
 	  			response.should redirect_to send(path)
+	  		end
+	  		if flash_message.present?
+	  			it "should have correct flash message for #{a}" do
+	  				get a, id: 1
+	  				flash[:error].should include flash_message
+	  			end
 	  		end
 			end
 		end
