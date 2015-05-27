@@ -12,12 +12,12 @@ module TestAccess
 			actions.each do |a|
 				it "should deny access to #{a}" do
 	  			get a, id: 1
-	  			response.should redirect_to send(path)
+	  			expect(response).to redirect_to send(path)
 	  		end
 	  		if flash_message.present?
 	  			it "should have correct flash message for #{a}" do
 	  				get a, id: 1
-	  				flash[:error].should include flash_message
+	  				expect(flash[:error]).to include flash_message
 	  			end
 	  		end
 			end
