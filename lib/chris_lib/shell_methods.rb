@@ -43,6 +43,7 @@ module ShellMethods
 			 	puts "No migration necessary"
 			else
 			 	puts "Warning, different db versions"
+			 	system('tput bel')
 			 	puts "Press m<cr> to migrate or q<cr> to exit"
 			 	ans=$stdin.gets()
 			 	exit 2 if ans[0]!='m'
