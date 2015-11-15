@@ -26,9 +26,7 @@ module ShellMethods
 	end
 	def check_chris_lib_status
 		gs=`cd ../chris_lib;git status`; lr=$?.success?
-	puts 'gs',gs
-		puts "Checking chris_lib_status"
-		if gs['working directory clean'].nil? || gs['up-to-date'].nil?
+		if gs['working directory clean'].nil? && gs['up-to-date'].nil?
 			puts "Exiting, chris_lib is not up to date with master."
 			exit 3
 		end
