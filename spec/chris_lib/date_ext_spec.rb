@@ -10,6 +10,10 @@ describe ChrisLib  do
 			expect(date.us_format_with_weekday).to eq 'Monday, September 8, 2014'
 		end
 	end 
+	describe 'short_format' do
+		let(:date){Date.new(2014,9,8)}
+		it{ expect(date.short_format).to eq 'Sep 8, 2014' }
+	end
 	describe "charmians_format" do
 		it "should provide date the way charmian likes it" do
 		  date=Date.new(2014,4,1)

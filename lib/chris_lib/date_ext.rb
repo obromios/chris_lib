@@ -11,6 +11,9 @@ module DateExt
     def us_format
       "#{strftime('%B')} #{day.to_s}, #{year.to_s}"
     end
+    def short_format
+      "#{strftime('%b')} #{day.to_s}, #{year.to_s}"
+    end
     def us_format_with_weekday
     	"#{strftime('%A')}, #{strftime('%B')} #{day.to_s}, #{year.to_s}"
     end
