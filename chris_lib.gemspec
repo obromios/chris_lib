@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Chris"]
   s.email       = ["obromios@gmail.com"]
   s.homepage    = "https://github.com/obromios"
-  s.summary     = %q{This an eclectic collection of methods.}
-  s.description = %q{It include maths, datetime, and rspec access test libraries.}
+  s.summary     = %q{This an eclectic collection of methods. It include maths, datetime, and rspec access test libraries.}
+  s.description = %q{It include maths, datetime, and rspec access test libraries. It include maths, datetime, and rspec access test libraries.}
   s.license     = "MIT"
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.add_dependency "rails"
