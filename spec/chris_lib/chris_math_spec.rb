@@ -28,6 +28,12 @@ describe "Integer Extensions"  do
 	end
 end
 describe "Array Extensions" do
+	describe 'median' do
+		it{ [].median.should be_nil }
+		it{ [3].median.should eq 3 }
+		it{ [3,4,5].median.should eq 4}
+		it{ [2,4,5,6].median.should be_within(0.0001).of 4.5}
+	end
 	describe :mean do
 		let(:uniform){(1..900).to_a.map!{rand()}}
 		let(:mu){0.5}

@@ -1,0 +1,8 @@
+
+RVM version 1.27.0 (latest) is installed yet 1.26.11 (latest) is loaded.
+Please do one of the following:
+  * 'rvm reload'
+  * open a new shell
+  * 'echo rvm_auto_reload_flag=1 >> ~/.rvmrc' # for auto reload with msg.
+  * 'echo rvm_auto_reload_flag=2 >> ~/.rvmrc' # for silent auto reload.
+

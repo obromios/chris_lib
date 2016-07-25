@@ -21,6 +21,16 @@ Array.class_eval do
 		m=count-1
 		sum.to_f/m
 	end
+	def median
+		return self[0] if length <= 1
+		sorted = sort
+		n = length
+		if n.odd? # length is odd
+		  sorted[n/2]
+		else
+		  (sorted[n/2] + sorted[n/2-1]).to_f/2
+		end
+	end
 end
 
 module ChrisMath
