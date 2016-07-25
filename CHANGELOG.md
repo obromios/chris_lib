@@ -6,5 +6,7 @@
 # v1.0.0
   *Add median
   * first public release
+# v1.0.1
+  * Update description
   
 
