@@ -3,4 +3,8 @@
 	* Initial Release
 # v0.0.2
 	*test_access, chris_math, date_ext all in
+# v1.0.0
+  *Add median
+  * first public release
+  
 
