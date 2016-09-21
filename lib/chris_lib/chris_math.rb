@@ -1,5 +1,5 @@
 Integer.class_eval do
-	def factorial
+  def factorial
 		n=self
 		if n > 20
 			raise "Number too large"
@@ -31,6 +31,11 @@ Array.class_eval do
 		  (sorted[n/2] + sorted[n/2-1]).to_f/2
 		end
 	end
+  def histogram
+    k = Hash.new(0)
+    self.each { |x| k[x] += 1 }
+    k
+  end
 end
 
 module ChrisMath
