@@ -44,13 +44,21 @@ end
 module ChrisMath
   
   include Math
+
+  def gaussian_array(n = 1)
+    (1..n).map do
+      u1 = rand()
+      u2 = rand()
+      sqrt(-2*log(u1))*cos(2*PI*u2)
+    end
+  end
   
   def bi_gaussian_rand
     u1 = rand()
     u2 = rand()
     z0 = sqrt(-2*log(u1))*cos(2*PI*u2)
     z1 = sqrt(-2*log(u1))*sin(2*PI*u2)
-    return [z0,z1]
+    [z0,z1]
   end
 
   def gaussian_rand(mean,std)
