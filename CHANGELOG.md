@@ -8,5 +8,9 @@
   * first public release
 # v1.0.1
   * Update description
-  
+# v1.0.2
+	* insignificant change
+# v1.0.3
+	* new maths functions
+
 
