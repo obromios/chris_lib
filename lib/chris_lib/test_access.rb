@@ -11,12 +11,12 @@ module TestAccess
 	  def it_should_route_to(path,actions,flash_message=nil)
 			actions.each do |a|
 				it "should deny access to #{a}" do
-	  			get a.to_sym, id: 1
+	  			get a.to_sym, params: { id: 1}
 	  			expect(response).to redirect_to send(path)
 	  		end
 	  		if flash_message.present?
 	  			it "should have correct flash message for #{a}" do
-	  				get a, id: 1
+	  				get a, params: { id: 1}
 	  				expect(flash[:error]).to include flash_message
 	  			end
 	  		end
