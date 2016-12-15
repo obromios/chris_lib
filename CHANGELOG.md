@@ -12,5 +12,7 @@
 	* insignificant change
 # v1.0.3
 	* new maths functions
+# v1.0.4
+  * Fix http deprecation for rails 5.1
 
 
