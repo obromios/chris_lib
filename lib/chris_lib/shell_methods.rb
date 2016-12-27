@@ -5,7 +5,7 @@ module ShellMethods
 	    asset_host = ENV['RAILS_HOST_PATH']
 	  elsif target == 'staging'
 	    asset_host = 'cstaging-golf.herokuapp.com'
-	  elsif target == 'producton'
+	  elsif target == 'production'
 	    asset_host = 'www.thegolfmentor.com'
 	  else
 	    raise "Invalid target for precompile: #{target}"
