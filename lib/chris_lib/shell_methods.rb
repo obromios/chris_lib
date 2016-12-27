@@ -1,4 +1,22 @@
 module ShellMethods
+	def precompile_assets(target: 'development')
+	  puts "Precompiling assets for #{target}"
+	  if target == 'development'
+	    asset_host = ENV['RAILS_HOST_PATH']
+	  elsif target == 'staging'
+	    asset_host = 'cstaging-golf.herokuapp.com'
+	  elsif target == 'producton'
+	    asset_host = 'www.thegolfmentor.com'
+	  else
+	    raise "Invalid target for precompile: #{target}"
+	  end
+	  `rake assets:clobber`
+	  system("RAILS_ENV=production RAILS_HOST_PATH=#{asset_host} rake assets:precompile")
+	  system('rake heroku:make_hashless_assets') if target == 'production'
+	  `git add .`
+	  commit_msg = "Add precompiled assets for #{target}"
+	  system(%[git commit -m "#{commit_msg}"])
+	end
 	def time_hash
 		time=Time.now
 		time.day.to_s + time.month.to_s + time.year.to_s + '-' + time.hour.to_s + time.min.to_s
@@ -49,5 +67,26 @@ module ShellMethods
 			 	system("heroku run rake db:migrate #{destination}")
 			end
 		end
+	end
+	def notify_rollbar_of_deploy(access_token: nil)
+	  system("ACCESS_TOKEN=#{access_token}")
+	  system("ENVIRONMENT=production")
+	  system("LOCAL_USERNAME=`whoami`")
+	  system("COMMENT=v#{TGM_VERSION}")
+	  sha = `git log -n 1 --pretty=format:'%H'`
+	  system("REVISION=sha")
+	  puts "Notifiying of revision #{sha}"
+	  cr = `curl https://api.rollbar.com/api/1/deploy/ \
+	  -F access_token=$ACCESS_TOKEN \
+	  -F environment=$ENVIRONMENT \
+	  -F revision=$REVISION \
+	  -F comment=$COMMENT \
+	  -F local_username=$LOCAL_USERNAME`
+	  if cr.class == Hash && cr['data'].empty?
+	    puts "Rollbar was notified of deploy of v#{TGM_VERSION} with SHA #{sha[0..5]}"
+	  else
+	    system('tput bel;tput bel')
+	    puts "Failure to notify Rollbar of deploy of v#{TGM_VERSION} with SHA #{sha[0..5]}", cr
+	  end
 	end
 end
