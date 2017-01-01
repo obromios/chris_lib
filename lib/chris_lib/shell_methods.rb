@@ -10,7 +10,6 @@ module ShellMethods
 	  else
 	    raise "Invalid target for precompile: #{target}"
 	  end
-	  `rake assets:clobber`
 	  system("RAILS_ENV=production RAILS_HOST_PATH=#{asset_host} rake assets:precompile")
 	  system('rake heroku:make_hashless_assets') if target == 'production'
 	  `git add .`
