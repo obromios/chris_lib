@@ -14,7 +14,6 @@ module ShellMethods
 	  end
 	  puts "precompile asset_host is #{asset_host}"
 	  system("RAILS_ENV=production RAILS_HOST_PATH=#{asset_host} rake assets:precompile")
-	  system('rake heroku:make_hashless_assets') if target == 'production'
 	  `git add .`
 	  commit_msg = "Add precompiled assets for #{target}"
 	  system(%[git commit -m "#{commit_msg}"])
