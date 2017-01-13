@@ -1,9 +1,9 @@
 module ShellMethods
 	require 'dotenv'
 	Dotenv.load
-	def precompile_assets(target: 'development')
+	def precompile_assets(target: 'local')
 	  puts "Precompiling assets for #{target}"
-	  if target == 'development'
+	  if target == 'local'
 	    asset_host = ENV['RAILS_HOST_PATH']
 	  elsif target == 'staging'
 	    asset_host = 'cstaging-golf.herokuapp.com'
