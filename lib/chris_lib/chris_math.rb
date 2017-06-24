@@ -10,16 +10,16 @@ Integer.class_eval do
 end
 Array.class_eval do
   def mean
-    fail 'Length must be greater than 1.' if count < 1
+    fail 'Length must be greater than 0.' if length < 1
     sum = self.inject { |s, v| s + v }
-    sum.to_f / count
+    sum.to_f / length
   end
 
   def var
-    fail 'Length must be greater than 1' if count < 2 
+    fail 'Length must be greater than 1' if length < 2 
     m = self.mean
     sum = self.inject { |s,v| s + (v**2 - m**2)}
-    m=count-1
+    m=length-1
     sum.to_f/m
   end
 
@@ -70,7 +70,7 @@ module ChrisMath
   
   
   def std(values)
-    n = values.count
+    n = values.length
     fail 'n = #{n} but must be greater than 1' if n < 2
     m = mean(values)
     sum = values.inject { |s,v| s + (v**2 - m**2)}
