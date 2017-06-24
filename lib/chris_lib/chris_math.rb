@@ -10,7 +10,7 @@ Integer.class_eval do
 end
 Array.class_eval do
   def mean
-    fail 'Length must be greater than 1.' if count < 2
+    fail 'Length must be greater than 1.' if count < 1
     sum = self.inject { |s, v| s + v }
     sum.to_f / count
   end
