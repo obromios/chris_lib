@@ -17,10 +17,9 @@ Array.class_eval do
 
   def var
     fail 'Length must be greater than 1' if length < 2 
-    m = self.mean
-    sum = self.inject { |s,v| s + (v**2 - m**2)}
-    m=length-1
-    sum.to_f/m
+    mu = self.mean
+    total = self.inject(0) { |s,v| s + (v**2 - mu**2)}
+    total.to_f/(length - 1)
   end
 
   def median

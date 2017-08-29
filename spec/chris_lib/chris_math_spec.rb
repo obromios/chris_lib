@@ -49,5 +49,6 @@ describe "Array Extensions" do
 		let(:tol){(10*sigma**2/30)}
 		it{expect(uniform.var).to be_within(tol).of(sigma**2)}
 		it{expect{[1].var}.to raise_error "Length must be greater than 1"}
+		it{ expect([1,2,3].var).to eq 1.0 }
 	end
 end
