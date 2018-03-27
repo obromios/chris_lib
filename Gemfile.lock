@@ -1,9 +1,8 @@
 PATH
   remote: .
   specs:
-    chris_lib (1.0.4)
+    chris_lib (1.0.5)
       dotenv
-      rails (~> 5.1.4)
 
 GEM
   remote: https://rubygems.org/
@@ -133,6 +132,7 @@ PLATFORMS
 
 DEPENDENCIES
   chris_lib!
+  rails (~> 5.1.4)
   rspec-rails (~> 3.7.2)
   sqlite3
 

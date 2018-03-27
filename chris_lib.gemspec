@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = %q{It include maths, datetime, and rspec access test libraries. It include maths, datetime, and rspec access test libraries.}
   s.license     = "MIT"
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.add_dependency "rails", '~> 5.1.4'
+  s.add_development_dependency "rails", '~> 5.1.4'
   s.add_development_dependency "sqlite3"
   s.add_development_dependency 'rspec-rails', '~> 3.7.2'
   s.add_dependency "dotenv"
