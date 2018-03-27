@@ -37,7 +37,7 @@ describe ChrisLib  do
 		end
 		describe :charmians_format_sup do
 			it "should reject non date objects" do
-				expect {'stringy'.charmians_format_sup}.to raise_error
+				expect {'stringy'.charmians_format_sup}.to raise_error NoMethodError
 			end
 			it "should provide html superscript if requested" do
 				date=Date.new(2014,4,1)

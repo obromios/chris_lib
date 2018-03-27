@@ -29,10 +29,10 @@ describe "Integer Extensions"  do
 end
 describe "Array Extensions" do
 	describe 'median' do
-		it{ [].median.should be_nil }
-		it{ [3].median.should eq 3 }
-		it{ [3,4,5].median.should eq 4}
-		it{ [2,4,5,6].median.should be_within(0.0001).of 4.5}
+		it{ expect([].median).to be_nil }
+		it{ expect([3].median).to eq 3 }
+		it{ expect([3,4,5].median).to eq 4}
+		it{ expect([2,4,5,6].median).to be_within(0.0001).of 4.5}
 	end
 	describe :mean do
 		let(:uniform){(1..900).to_a.map!{rand()}}
@@ -40,7 +40,7 @@ describe "Array Extensions" do
 		let(:sigma){0.2887}
 		let(:tol){5*sigma/30}
 		it{expect(uniform.mean).to be_within(tol).of(mu)}
-		it{expect{[1].mean}.to raise_error "Length must be greater than 1"}
+		it{expect{[].mean}.to raise_error RuntimeError, "Length must be greater than 0."}
 	end
 	describe :var do
 		let(:uniform){(1..900).to_a.map!{rand()}}

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AccessTestController do
+describe AccessTestController, type: :controller do
 
   describe "block access when needed" do
     include TestAccess
@@ -11,7 +11,7 @@ describe AccessTestController do
   describe "GET 'index'" do
     it "returns http success" do
       get 'index'
-      response.should be_success
+      expect(response).to be_success
     end
   end
 
