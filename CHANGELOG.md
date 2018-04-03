@@ -17,5 +17,7 @@
 # v1.0.5 ab22f2d 28-Mar-2018
   * Fix bug in variance
   * extend mean to work with array length of 1
+# v1.0.6 dd54130 28-Mar-2018
+  * removed rails 5.1.4 dependency
 
 
