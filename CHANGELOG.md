@@ -1,5 +1,5 @@
 # Version Information
-## Not yet deployed
+## v1.0.8 2018-04-17
   - Add script to build and push gem
   - Remove unnecessary dependencies
 ## v1.0.7 2018-04-17
