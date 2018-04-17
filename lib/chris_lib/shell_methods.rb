@@ -30,7 +30,9 @@ module ShellMethods
     destination = (remote.nil? ? nil : "--remote #{remote}")
     lv = `rake db:version`
     puts 'Local version: ', lv
-    hv = `heroku run rake db:version #{destination}`
+    hv = Bundler.with_clean_env {
+      `heroku run rake db:version #{destination}`
+    }
     puts hv
     key = 'version: '
     nl = lv.index(key) + 9

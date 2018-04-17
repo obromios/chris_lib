@@ -3,6 +3,7 @@
   - Changed format of CHANGELOG
   - Added CHANGELOG to gemspec metadata
   - Changed to ruby 2.5.1
+  - Fixed issue with ShellMethods.same_db_method
 ## v1.0.6 dd54130 2018-03-28
   - Removed rails 5.1.4 dependency
 ## v1.0.5 ab22f2d 2018-03-28
