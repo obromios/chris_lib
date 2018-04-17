@@ -30,10 +30,10 @@ module ShellMethods
     destination = (remote.nil? ? nil : "--remote #{remote}")
     lv = `rake db:version`
     puts 'Local version: ', lv
-    hv = Bundler.with_clean_env {
-      `heroku run rake db:version #{destination}`
-    }
+    hv = Bundler.with_clean_env { `heroku run rake db:version #{destination}` }
     puts hv
+    return nil if hv.nil? || hv.empty?
+    return nil if lv.nil? || lv.empty?
     key = 'version: '
     nl = lv.index(key) + 9
     l_version = lv.slice(nl..-1)
@@ -44,7 +44,8 @@ module ShellMethods
 
   def check_git_clean
     puts "Checking git status"
-    gs=`git status`; lr=$?.success?
+    gs = `git status`
+    lr = $?.success?
     if gs['working directory clean'].nil?
       puts "Exiting, you need to commit files"
       exit 1
