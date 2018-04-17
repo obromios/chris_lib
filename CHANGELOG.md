@@ -1,5 +1,7 @@
 # Version Information
-## v1.0.8 2018-04-17
+## v1.0.9 Not yet deployed
+  - Change location of build_gem.rb
+## v1.0.8, Date: 2018-04-17
   - Add script to build and push gem
   - Remove unnecessary dependencies
 ## v1.0.7 2018-04-17
@@ -19,12 +21,13 @@
 ## v1.0.2
   - Changed insignificantly
 ## v1.0.1
-  * Updated description
+  - Updated description
 ## v1.0.0
   - Added median
-  - first public release
+  - First public release
 ## v0.0.1
-	- Initial Release
+  - Initial Release
 
-
+## Notes
+  - option + m to open this file in browser with Sublime Text
 
