@@ -1,4 +1,7 @@
 # Version Information
+## Not yet deployed
+  - Add script to build and push gem
+  - Remove unnecessary dependencies
 ## v1.0.7 2018-04-17
   - Changed format of CHANGELOG
   - Added CHANGELOG to gemspec metadata
