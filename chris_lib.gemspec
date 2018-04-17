@@ -11,10 +11,15 @@ Gem::Specification.new do |s|
   s.email       = ["obromios@gmail.com"]
   s.homepage    = "https://github.com/obromios"
   s.summary     = %q{This an eclectic collection of methods. It include maths, datetime, and rspec access test libraries.}
-  s.description = %q{It include maths, datetime, and rspec access test libraries. It include maths, datetime, and rspec access test libraries.}
+  s.description = %q{It includes maths, datetime, and rspec access test libraries.}
   s.license     = "MIT"
+  s.metadata    = {
+    "source_code_uri" => "https://github.com/obromios/chris_lib",
+    "changelog_uri" => "https://github.com/obromios/chris_lib/blob/master/CHANGELOG.md"
+  }
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.add_development_dependency "rails", '~> 5.1.4'
+  s.add_dependency "rails", ">= 4.2"
+  s.add_development_dependency "rails", '>= 4.2'
   s.add_development_dependency "sqlite3"
   s.add_development_dependency 'rspec-rails', '~> 3.7.2'
   s.add_dependency "dotenv"

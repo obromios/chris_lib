@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chris_lib (1.0.5)
+    chris_lib (1.0.6)
       dotenv
 
 GEM
