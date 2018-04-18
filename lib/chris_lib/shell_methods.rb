@@ -30,7 +30,11 @@ module ShellMethods
     destination = (remote.nil? ? nil : "--remote #{remote}")
     lv = `rake db:version`
     puts 'Local version: ', lv
-    hv = Bundler.with_clean_env { `heroku run rake db:version #{destination}` }
+    hv = Bundler.with_clean_env { 
+      require '../chris_lib/lib/chris_lib/shell_methods'
+      include ShellMethods
+      `heroku run rake db:version #{destination}`
+    }
     puts hv
     return nil if hv.nil? || hv.empty?
     return nil if lv.nil? || lv.empty?
