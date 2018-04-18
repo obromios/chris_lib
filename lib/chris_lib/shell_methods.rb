@@ -1,6 +1,7 @@
 # methods for bash ruby scripts
 module ShellMethods
   require 'dotenv'
+  require 'bundler'
   Dotenv.load
 
   def precompile_assets(target: 'local')
@@ -31,8 +32,6 @@ module ShellMethods
     lv = `rake db:version`
     puts 'Local version: ', lv
     hv = Bundler.with_clean_env { 
-      require '../chris_lib/lib/chris_lib/shell_methods'
-      include ShellMethods
       `heroku run rake db:version #{destination}`
     }
     puts hv

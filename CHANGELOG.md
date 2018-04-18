@@ -1,6 +1,7 @@
 # Version Information
 ## v1.0.9 Not yet deployed
   - Change location of build_gem.rb
+  - Fixed bug in ShellMethods that prevented Bundler running
 ## v1.0.8, Date: 2018-04-17
   - Add script to build and push gem
   - Remove unnecessary dependencies
