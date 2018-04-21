@@ -1,9 +1,9 @@
 # Version Information
-## v1.0.9, deployed: 2018-04-20
+## v1.0.9, deployed 2018-04-20
   - Change location of build_gem.rb
   - Fixed bug in ShellMethods that prevented Bundler running
   - Fixed it_should_route_to to work with Rails 4 as well as rails 5
-## v1.0.8, deployed: 2018-04-17
+## v1.0.8, deployed 2018-04-17
   - Add script to build and push gem
   - Remove unnecessary dependencies
 ## v1.0.7, deployed 2018-04-17
