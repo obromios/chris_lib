@@ -2,7 +2,49 @@
 module ShellMethods
   require 'dotenv'
   require 'bundler'
+  require 'optparse'
   Dotenv.load
+
+  def parse_options
+    @options = {}
+    OptionParser.new do |opts|
+      opts.on("-s", "--skip_migration", "Skip migrations") do
+        @options[:skip_migration] = true
+      end
+      opts.on("-f", "--fast", "Deploy without warnings and skip migrations") do
+        @options[:fast] = true
+      end
+      opts.on("-r", "--special_rake", "Run special rake task") do
+        @options[:special_rake] = true
+      end
+    end.parse!
+    @options[:skip_migration] = true   if @options[:fast]
+  end
+
+  def run_special_rake_task
+    fail 'Need to implement by asking for name of rake task and
+    also requiring confirmation'
+  end
+
+  def backup_database
+    file_path = "../backups/prod#{time_hash}.dump"
+    system('./script/getSnapShot.sh production ' + file_path)
+  end
+
+  def warn_users
+    system('heroku run rake util:three_min_warning --remote production')
+    # spend one minute precompiling 
+    progress_bar = ProgressBar.create
+    # now 2 minutes waiting
+    increment = 3 * 60 / 100
+    (1..100).each do |_i|
+      sleep increment
+      progress_bar.increment
+      progress_bar.refresh
+    end
+    system('heroku run rake util:delete_newest_announcement --remote production')
+    system('heroku run rake util:warn_under_maintenance --remote production')
+  end
 
   def precompile_assets(target: 'local')
     puts "Precompiling assets for #{target}"
@@ -64,9 +106,9 @@ module ShellMethods
     system('cd $OLDPWD')
   end
 
-  def migrate_if_necessary(remote: nil,migrate: nil)
-    if migrate == '--no_migrate'
-      puts "No migration will be performed due to --no_migrate option"
+  def migrate_if_necessary(remote: nil, skip_migration: false)
+    if skip_migration
+      puts "No migration will be performed due to --fast or --skip_migration options"
     else
       destination=(remote.nil? ? nil : "--remote #{remote}")
       puts "Checking local and remote databases have same version and migrates if necessary"
