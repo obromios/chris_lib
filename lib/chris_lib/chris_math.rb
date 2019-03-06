@@ -9,13 +9,19 @@ Integer.class_eval do
   end
 end
 Array.class_eval do
+  # mean of array
   def mean
+    # s=c(7.08195525827783, 10.831582068121444, 9.288611270369554, 9.054684238411918, 12.268532229606647)
+    # returns 9.705073
     fail 'Length must be greater than 0.' if length < 1
     sum = self.inject { |s, v| s + v }
     sum.to_f / length
   end
 
+  # sample variance of array
   def var
+    # s=c(7.08195525827783, 10.831582068121444, 9.288611270369554, 9.054684238411918, 12.268532229606647)
+    # R returns 3.829385
     fail 'Length must be greater than 1' if length < 2 
     mu = self.mean
     total = self.inject(0) { |s,v| s + (v**2 - mu**2)}
