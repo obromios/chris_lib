@@ -18,7 +18,7 @@ Array.class_eval do
     sum.to_f / length
   end
 
-  # sample variance of array
+  # unbiased sample variance of array
   def var
     # s=c(7.08195525827783, 10.831582068121444, 9.288611270369554, 9.054684238411918, 12.268532229606647)
     # R returns 3.829385
