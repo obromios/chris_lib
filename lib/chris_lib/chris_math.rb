@@ -20,12 +20,20 @@ Array.class_eval do
 
   # unbiased sample variance of array
   def var
-    # s=c(7.08195525827783, 10.831582068121444, 9.288611270369554, 9.054684238411918, 12.268532229606647)
-    # R returns 3.829385
     fail 'Length must be greater than 1' if length < 2 
     mu = self.mean
     total = self.inject(0) { |s,v| s + (v**2 - mu**2)}
     total.to_f/(length - 1)
+  end
+
+  # sammple standard deviation
+  def std
+    Math.sqrt(var)
+  end
+
+  # standard error of sample mean
+  def std_err
+    std / Math.sqrt(size)
   end
 
   def median
@@ -43,6 +51,36 @@ Array.class_eval do
     k = Hash.new(0)
     self.each { |x| k[x] += 1 }
     k
+  end
+
+  # deep dup, takes about 20 microseconds for scores arrays
+  # https://www.thoughtco.com/making-deep-copies-in-ruby-2907749
+  def deep_dup
+    Marshal.load(Marshal.dump(self))
+  end
+end
+
+Float.class_eval do
+  def round_down(n=0)
+    # n is decimal place to round down at
+    int,dec=self.to_s.split('.')
+    "#{int}.#{dec[0...n]}".to_f
+  end
+
+  def round1
+    round(1)
+  end
+
+  def round2
+    round(2)
+  end
+
+  def round3
+    round(3)
+  end
+
+  def round4
+    round(4)
   end
 end
 
