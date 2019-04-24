@@ -4,6 +4,7 @@
   - deep_dup, std, std_err to Array
   - round methods to Float
   - update gems for security reasons
+  - update to ruby 2.5.5
 ## version v1.0.11, deployed 2018-06-22
   - Update sprockets due to CVE-2018-3760
 ## v1.0.9, deployed 2018-04-20
