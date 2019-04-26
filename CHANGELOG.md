@@ -1,4 +1,6 @@
 # Version Information
+## version v1.1.1 deployed 2019-04-26
+  - git_clean checks for 'working tree clean'
 ## version v1.1.0, deployed 2019-04-24
   - methods to ChrisMath
   - deep_dup, std, std_err to Array

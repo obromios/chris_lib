@@ -90,19 +90,16 @@ module ShellMethods
   def check_git_clean
     puts "Checking git status"
     gs = `git status`
-    lr = $?.success?
-    if gs['working directory clean'].nil?
-      puts "Exiting, you need to commit files"
-      exit 1
-    end
+    return unless gs['working tree clean'].nil?
+    puts "Exiting, you need to commit files"
+    exit 1
   end
 
   def check_chris_lib_status
     gs=`cd ../chris_lib;git status`; lr=$?.success?
-    if gs['working directory clean'].nil? && gs['up-to-date'].nil?
-      puts "Exiting, chris_lib is not up to date with master."
-      exit 3
-    end
+    return unless gs['working tree clean'].nil? && gs['up-to-date'].nil?
+    puts "Exiting, chris_lib is not up to date with master."
+    exit 3
     system('cd $OLDPWD')
   end
 

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chris_lib (1.0.12)
+    chris_lib (1.1.0)
       dotenv (~> 2.2, >= 2.2.1)
 
 GEM
@@ -137,4 +137,4 @@ DEPENDENCIES
   sqlite3 (~> 1.3, >= 1.3.11)
 
 BUNDLED WITH
-   1.16.6
+   1.17.3
