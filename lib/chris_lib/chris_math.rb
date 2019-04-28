@@ -14,20 +14,19 @@ Array.class_eval do
     # s=c(7.08195525827783, 10.831582068121444, 9.288611270369554, 9.054684238411918, 12.268532229606647)
     # returns 9.705073
     fail 'Length must be greater than 0.' if length < 1
-    sum = self.inject { |s, v| s + v }
     sum.to_f / length
   end
 
   # unbiased sample variance of array
   def var
-    fail 'Length must be greater than 1' if length < 2 
-    mu = self.mean
-    total = self.inject(0) { |s,v| s + (v**2 - mu**2)}
-    total.to_f/(length - 1)
+    fail 'Length must be greater than 1' if length < 2
+    mu = mean
+    map { |v| (v**2 - mu**2) }.sum.to_f / (length - 1)
   end
 
-  # sammple standard deviation
+  # sample standard deviation
   def std
+    return 0 if var < 0.0 # perhaps due to rounding errors
     Math.sqrt(var)
   end
 
