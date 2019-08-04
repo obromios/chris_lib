@@ -1,6 +1,6 @@
 # chris_lib
 
-This is a gem containing an eclectic library of methods. It is primarily to allow the team to share this code across different apps. As such is it not really meant to be used by other people. But if you find any of the methods useful... great.
+This is a gem containing an eclectic library of methods. Most of the methods are for scientific computing, but there is a helper for Rspec, extensions to the Date class, and methods for building ruby bash scripts.
 
 ## Installation
 
