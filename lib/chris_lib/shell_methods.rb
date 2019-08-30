@@ -5,6 +5,18 @@ module ShellMethods
   require 'optparse'
   Dotenv.load
 
+  def file_size(file_path)
+    `stat -f%z #{file_path}`.to_i
+  end
+
+  def imessage_admin(msg)
+    `osascript -e 'tell application "Messages" to send "#{msg}" to buddy "admin"'`
+  end
+
+  def osx_notification(msg, title)
+    `osascript -e 'display notification "#{msg}" with title "#{title}"'`
+  end
+
   def parse_options
     @options = {}
     OptionParser.new do |opts|
