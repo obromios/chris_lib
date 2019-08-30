@@ -1,6 +1,12 @@
 language: ruby
-
 sudo: false
-
 before_install:
-  - gem install -v 1.17.2 bundler
+- gem install -v 1.17.2 bundler
+deploy:
+  provider: rubygems
+  api_key:
+    secure: HEPSGrk4eId0hJhLkuX5PLy3UGWxK9zyDgIgky/r5d870va5V3L9hByoBex/gjKRdJ05j7IWhXwCKJHSNILL0FR451hU8STl86CRM69dFpvBEUA9UO0YU2y0QDkikphvHesFsRanezKsQK+mcMby+SqW188nw4nJGnnHKOWDvUIw9Hulb8sUKY/mrOljFBN3FIHsBglAVn4ajal0ZudSyPW36Zy36v2tgvYAxO5rr1gdEj7/TGenPzoh9yACC9kBMUDBf4rTPysIm71/mcbh4uokmCk6vd3uCUX8ElaffuIEGk/w6DyTA+VTUsPDPE0lVAQ0cwW9Jx/vDaS/B72/OWxEJq8dlb4n97zuavte2YxsXCbRgLptdusnEvFdP73o8DHvKNjinDyszKLbAZwyuij6s9SSOkgQNM6nf+U8Renz/ai9cjPSZZ1s6MxoXu0EbDMfMiC5XLhcN4tAamI21vxd/RDvVGM32aJVVmFFnb+N+nfRnGQgJDjBbGSuIA/V0UaeuGM5hI8Wt41Z9B69xQShyDlyxffnCW8YrjNPZi6hrIf/hO92YGpLQeM6p0gapu3V3zmvlc3eLl8kbLscYw1B5fffdERfAGvcZKgv0bUGzLFIDPmd3aDcFyG5/OQsYSY9jb+zpmVOLm+sWX35+VzLnUIWmXMvIIY5J4jDQKw=
+  gem: chris_lib
+  on:
+    tags: true
+    repo: obromios/chris_lib
