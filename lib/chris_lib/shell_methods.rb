@@ -9,12 +9,22 @@ module ShellMethods
     `stat -f%z #{file_path}`.to_i
   end
 
-  def imessage_admin(msg)
+  def osx_imessage_admin(msg)
     `osascript -e 'tell application "Messages" to send "#{msg}" to buddy "admin"'`
   end
 
   def osx_notification(msg, title)
     `osascript -e 'display notification "#{msg}" with title "#{title}"'`
+  end
+
+  def osx_hostname
+    `hostname`
+  end
+
+  # mail to osx user
+  # https://stackoverflow.com/q/41602984/1299362
+  def osx_send_mail(subject, body = nil)
+    `echo "#{body}" | mail -s "#{subject}" 'Chris'`
   end
 
   def parse_options
