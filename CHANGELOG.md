@@ -1,4 +1,10 @@
 # Version Information
+## version v1.1.5
+  - Add osx_hostname to shell_methods
+  - Add osx_send_mail to shell_methods
+## version v1.1.4 deployed 2019-08-30
+  - Add imessage_admin to shell_methods
+  - Add osx_notification to shell_methods
 ## version v1.1.1 deployed 2019-04-26
   - git_clean checks for 'working tree clean'
 ## version v1.1.0, deployed 2019-04-24
