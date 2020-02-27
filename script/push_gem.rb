@@ -5,7 +5,7 @@ msg = "Build v#{ChrisLib::VERSION} of chris_lib"
 puts msg
 `gem build chris_lib`
 `git add .`
-`git commit -m msg`
+`git commit -m #{msg}`
 puts "Build v#{ChrisLib::VERSION} of chris_lib"
 `git push origin master`
 `gem push chris_lib-#{ChrisLib::VERSION}.gem`
