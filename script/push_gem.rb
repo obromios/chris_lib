@@ -2,6 +2,7 @@
 require '/Users/Chris/Sites/chris_lib/lib/chris_lib/version.rb'
 include ChrisLib
 msg = "Build v#{ChrisLib::VERSION} of chris_lib"
+puts msg
 `gem build chris_lib`
 `git add .`
 `git commit -m msg`

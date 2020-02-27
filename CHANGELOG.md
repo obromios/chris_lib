@@ -1,4 +1,8 @@
 # Version Information
+## version 1.1.6
+  - security fixes
+  - upgrade nokogiri to 1.10.8
+  - upgrade rack to 2.0.8
 ## version v1.1.5
   - Add osx_hostname to shell_methods
   - Add osx_send_mail to shell_methods
