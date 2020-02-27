@@ -1,5 +1,5 @@
 # Version Information
-## version 1.1.6
+## version 1.1.7
   - security fixes
   - upgrade nokogiri to 1.10.8
   - upgrade rack to 2.0.8
