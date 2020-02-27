@@ -1,5 +1,6 @@
 # Version Information
-## version 1.1.7
+## version 1.1.8
+## version 1.1.7 fb11bbb 2722020-1841
   - security fixes
   - upgrade nokogiri to 1.10.8
   - upgrade rack to 2.0.8
