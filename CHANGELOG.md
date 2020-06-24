@@ -1,6 +1,7 @@
 # Version Information
 ## version 1.1.9
   - Apply security fixes
+  - Unable to get rspec working so deploying without testing
 ## version 1.1.8 bee8e8b 2632020-1019
   - Add explanation for escape_javascript unknown_input security alert to README
 ## version 1.1.7 fb11bbb 2722020-1841
