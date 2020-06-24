@@ -1,5 +1,6 @@
 # Version Information
-## version 1.1.9
+## version 1.1.10
+## version 1.1.9 87547b2 2462020-1624
   - Apply security fixes
   - Unable to get rspec working so deploying without testing
 ## version 1.1.8 bee8e8b 2632020-1019
