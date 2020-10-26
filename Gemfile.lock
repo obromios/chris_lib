@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chris_lib (1.1.4)
+    chris_lib (1.1.5)
       dotenv (~> 2.2, >= 2.2.1)
       nokogiri (>= 1.10.4)
 
