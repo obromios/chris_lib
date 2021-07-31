@@ -1,3 +1,3 @@
 module ChrisLib
-  VERSION = "1.1.5"
+  VERSION = "1.1.10"
 end

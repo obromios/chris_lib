@@ -1,4 +1,16 @@
 # Version Information
+## version 1.1.10
+  - add matrix.pinv (pseudo inverse)
+  - update for security issues
+## version 1.1.9 87547b2 2462020-1624
+  - Apply security fixes
+  - Unable to get rspec working so deploying without testing
+## version 1.1.8 bee8e8b 2632020-1019
+  - Add explanation for escape_javascript unknown_input security alert to README
+## version 1.1.7 fb11bbb 2722020-1841
+  - security fixes
+  - upgrade nokogiri to 1.10.8
+  - upgrade rack to 2.0.8
 ## version v1.1.5
   - Add osx_hostname to shell_methods
   - Add osx_send_mail to shell_methods

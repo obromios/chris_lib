@@ -8,6 +8,16 @@ Integer.class_eval do
     end
   end
 end
+
+Matrix.class_eval do
+  # for linearly independent rows
+  def pinv
+    full_rank = (rank == [row_count, column_count].min)
+    raise ExceptionForMatrix::ErrNotRegular unless full_rank
+    transpose * (self * transpose).inv
+  end
+end
+
 Array.class_eval do
   # mean of array
   def mean
