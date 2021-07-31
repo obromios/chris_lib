@@ -1,6 +1,27 @@
 # encoding: utf-8
 require 'spec_helper'
 require 'pp'
+
+describe 'Pseudo Inverse' do
+	describe 'pinv' do
+		it 'is right inverse' do
+			a_m = Matrix[[1.0, 2.0, 3.0], [7.0, 3.0, 5.0]]
+			expect((a_m * a_m.pinv).round(8)).to eq Matrix.identity(2)
+		end
+	end
+	describe 'pinv_right' do
+		it 'is right inverse' do
+			a_m = Matrix[[1.0, 2.0, 3.0], [7.0, 3.0, 5.0]]
+			expect((a_m * a_m.pinv_right).round(8)).to eq Matrix.identity(2)
+		end
+	end
+	describe 'pinv_left' do
+		it 'is right inverse' do
+			a_m = Matrix[[1.0, 2.0], [7.0, 3.0], [6.0, -3.0]]
+			expect((a_m.pinv_left * a_m).round(8)).to eq Matrix.identity(2)
+		end
+	end
+end
 describe "ChrisMath Module" do
 	include ChrisMath
 	describe "combinatorial" do

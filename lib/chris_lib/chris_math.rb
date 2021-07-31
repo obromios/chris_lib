@@ -17,6 +17,17 @@ Matrix.class_eval do
     raise ExceptionForMatrix::ErrNotRegular unless full_rank
     transpose * (self * transpose).inv
   end
+
+  def pinv_right
+    full_rank = (rank == [row_count, column_count].min)
+    raise ExceptionForMatrix::ErrNotRegular unless full_rank
+    transpose * (self * transpose).inv
+  end
+
+  # for linearly independent columns
+  def pinv_left
+    (transpose * self).inv * transpose
+  end
 end
 
 Array.class_eval do

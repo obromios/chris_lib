@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   }
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
   # rubocop:enable LineLength
-  s.add_dependency 'dotenv', '~> 2.2', '>= 2.2.1'
+  s.add_dependency 'dotenv'
   s.add_dependency 'rails'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'nokogiri'

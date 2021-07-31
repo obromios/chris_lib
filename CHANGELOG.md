@@ -1,4 +1,9 @@
 # Version Information
+## version 1.1.11
+  - Add require 'matrix' to chris_math
+  - Add pinv_left, pinv_right plus tests
+  - remove rails tests so can use rails 6.
+  - use ruby 2.7.4
 ## version 1.1.10
   - add matrix.pinv (pseudo inverse)
   - update for security issues
