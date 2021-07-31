@@ -11,13 +11,14 @@ Integer.class_eval do
 end
 
 Matrix.class_eval do
-  # for linearly independent rows
+  # right pseudo-inverse for linearly independent rows
   def pinv
     full_rank = (rank == [row_count, column_count].min)
     raise ExceptionForMatrix::ErrNotRegular unless full_rank
     transpose * (self * transpose).inv
   end
 
+  # for linearly independent rows
   def pinv_right
     full_rank = (rank == [row_count, column_count].min)
     raise ExceptionForMatrix::ErrNotRegular unless full_rank

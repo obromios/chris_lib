@@ -4,7 +4,7 @@
   - Add pinv_left, pinv_right plus tests
   - remove rails tests so can use rails 6.
   - use ruby 2.7.4
-## version 1.1.10
+## version 1.1.10 d390508 1952021-923
   - add matrix.pinv (pseudo inverse)
   - update for security issues
 ## version 1.1.9 87547b2 2462020-1624

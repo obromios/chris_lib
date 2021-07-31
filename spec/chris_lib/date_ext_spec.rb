@@ -1,7 +1,6 @@
 # encoding: utf-8
 require 'spec_helper'
 describe ChrisLib  do
-	include DateExt
 	describe 'Date extensions' do
 		describe "US formatters" do
 			let(:date){Date.new(2014,9,8)}
