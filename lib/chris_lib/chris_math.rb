@@ -1,3 +1,4 @@
+require 'matrix'
 Integer.class_eval do
   def factorial
     n = self
