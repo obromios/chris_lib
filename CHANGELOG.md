@@ -1,5 +1,6 @@
 # Version Information
-## version 1.1.11
+## Open version 1.1.12
+## version 1.1.11  25ec79f 182021-918
   - Add require 'matrix' to chris_math
   - Add pinv_left, pinv_right plus tests
   - remove rails tests so can use rails 6.
