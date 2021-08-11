@@ -1,5 +1,7 @@
 # Version Information
-## Open version 1.1.12
+## Open version 2.0.0
+  - add .rubocop.yml
+  - remove array.histogram (ruby 2.7 has tally)
 ## version 1.1.11  25ec79f 182021-918
   - Add require 'matrix' to chris_math
   - Add pinv_left, pinv_right plus tests

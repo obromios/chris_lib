@@ -1,0 +1,36 @@
+AllCops:
+  TargetRubyVersion: 2..2.4
+Style/ConstantName:
+  Enabled: false
+Metrics/LineLength:
+  Max: 100
+Metrics:
+  Enabled: false
+Style/VariableName:
+  Enabled: false
+Style/EmptyLineBetweenDefs:
+  Enabled: true
+Style/Tab:
+  Enabled: false
+Style/IndentationConsistency:
+  Enabled: true
+Style/AlignParameters:
+  Enabled: false
+Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+Naming/VariableNumber:
+  Enabled: true
+Bundler/OrderedGems:
+  false
+AllCops:
+  Exclude:
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'spec/**/*'
+# cops to consider removing by using autocorrect
+Style/SymbolArray:
+  Enabled: false

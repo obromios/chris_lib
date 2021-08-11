@@ -3,7 +3,7 @@ Integer.class_eval do
   def factorial
     n = self
     if n > 20
-      fail 'Number too large'
+      raise 'Number too large'
     else
       (1..n).inject {|prod, i| prod * i}
     end
@@ -34,15 +34,13 @@ end
 Array.class_eval do
   # mean of array
   def mean
-    # s=c(7.08195525827783, 10.831582068121444, 9.288611270369554, 9.054684238411918, 12.268532229606647)
-    # returns 9.705073
-    fail 'Length must be greater than 0.' if length < 1
+    raise 'Length must be greater than 0.' if length < 1
     sum.to_f / length
   end
 
   # unbiased sample variance of array
   def var
-    fail 'Length must be greater than 1' if length < 2
+    raise 'Length must be greater than 1' if length < 2
     mu = mean
     map { |v| (v**2 - mu**2) }.sum.to_f / (length - 1)
   end
@@ -67,12 +65,6 @@ Array.class_eval do
     else
       (sorted[n/2] + sorted[n/2-1]).to_f/2
     end
-  end
-
-  def histogram
-    k = Hash.new(0)
-    self.each { |x| k[x] += 1 }
-    k
   end
 
   # deep dup, takes about 20 microseconds for scores arrays
@@ -136,7 +128,7 @@ module ChrisMath
   
   def std(values)
     n = values.length
-    fail 'n = #{n} but must be greater than 1' if n < 2
+    raise 'n = #{n} but must be greater than 1' if n < 2
     m = mean(values)
     sum = values.inject { |s,v| s + (v**2 - m**2)}
     sqrt(sum.to_f/(n - 1))
@@ -153,7 +145,7 @@ module ChrisMath
     end
     sum
     else
-      fail 'Error, #{r} must be >= 0  and <= #{n}'
+      raise 'Error, #{r} must be >= 0  and <= #{n}'
     end
   end
   
