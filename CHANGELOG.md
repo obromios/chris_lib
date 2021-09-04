@@ -1,4 +1,6 @@
 # Version Information
+## version 2.0.2
+  - Really update to 6.1.4.1 for security
 ## version 2.0.1 8a2eeaf 2982021-938 2021-08-29
   - update actionpack to 6.1.4.1 for security
 ## version 2.0.0 e9ccc81 1882021-1745
