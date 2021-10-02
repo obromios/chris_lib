@@ -1,5 +1,5 @@
 # Version Information
-## version 2.0.3
+## version 2.0.3 e011bf6 2102021-1219
   - upgrade nokogiri for security
   - Add Array#round(n)
 ## version 2.0.2 668a3b2 492021-1647
