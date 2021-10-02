@@ -32,6 +32,11 @@ Matrix.class_eval do
 end
 
 Array.class_eval do
+  # round each element
+  def round(n)
+    map { |e| e.round(n) }
+  end
+  
   # mean of array
   def mean
     raise 'Length must be greater than 0.' if length < 1
