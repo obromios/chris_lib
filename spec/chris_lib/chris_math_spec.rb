@@ -5,6 +5,7 @@ require 'pp'
 describe 'Array.round(n)' do
   let!(:a) { [1.003, -0.8345, 0.3456, 0.1345] }
   it { expect(a.round(2)).to eq [1.00, -0.83, 0.35, 0.13] }
+  it { expect(a.round).to eq [1, -1, 0, 0] }
 end
 
 describe 'Pseudo Inverse' do

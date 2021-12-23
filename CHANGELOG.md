@@ -1,4 +1,6 @@
 # Version Information
+## version 2.0.4
+  - Add Array.round
 ## version 2.0.3
   - upgrade nokogiri for security
   - Add Array#round(n)

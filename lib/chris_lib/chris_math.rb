@@ -33,8 +33,8 @@ end
 
 Array.class_eval do
   # round each element
-  def round(n)
-    map { |e| e.round(n) }
+  def round(decimal_points = 0)
+    map { |e| e.round(decimal_points) }
   end
   
   # mean of array
