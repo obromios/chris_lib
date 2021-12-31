@@ -48,6 +48,10 @@ end
 describe 'Float Extensions' do
 	let(:a) { 1.0 / 3}
 	let(:b) { 2.0 / 3}
+  describe 'float.eround(n)' do
+    it { expect(1.2347e-8.eround(3)).to eq 1.235e-8 }
+    it { expect(1.2347e-8.eround(0)).to eq 1.0e-8 }
+  end
 	describe 'round_down' do
 		it { expect(a.round_down).to eq 0.0  }
 		it { expect(a.round_down(1)).to eq 0.3 }

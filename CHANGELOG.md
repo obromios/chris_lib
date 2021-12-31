@@ -1,5 +1,6 @@
 # Version Information
 ## versuib 2.0.5
+  - Add eround
 ## version 2.0.4 e748b07 24122021-1046
   - Add Array.round
 ## version 2.0.3

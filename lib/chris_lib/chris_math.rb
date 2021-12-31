@@ -80,6 +80,11 @@ Array.class_eval do
 end
 
 Float.class_eval do
+  # rounds exponential notation to n decimal places
+  def eround(decimal_points)
+    ("%.#{decimal_points}e" % self).to_f
+  end
+
   def round_down(n=0)
     # n is decimal place to round down at
     int,dec=self.to_s.split('.')
