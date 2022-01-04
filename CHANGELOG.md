@@ -1,6 +1,8 @@
 # Version Information
 ## versuib 2.0.5
-  - Add eround
+  - Add Float.eround
+  - Add Array.eround
+  - Update actionpack to 6.1.4.2 for security fix
 ## version 2.0.4 e748b07 24122021-1046
   - Add Array.round
 ## version 2.0.3
