@@ -5,6 +5,14 @@ module ShellMethods
   require 'optparse'
   Dotenv.load
 
+  # runs an R script from ruby
+  # script_path is absolute path of R script
+  # arg1 is an argument passed to script, can access in R by
+  # arg1 <- commandArgs(trailingOnly=TRUE)[1]
+  def r_runner(script_path, arg1)
+    `Rscript --vanilla #{script_path} #{arg1}`
+  end
+
   def file_size(file_path)
     `stat -f%z #{file_path}`.to_i
   end
