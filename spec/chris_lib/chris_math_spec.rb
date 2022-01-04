@@ -6,6 +6,13 @@ describe 'Array.round(n)' do
   let!(:a) { [1.003, -0.8345, 0.3456, 0.1345] }
   it { expect(a.round(2)).to eq [1.00, -0.83, 0.35, 0.13] }
   it { expect(a.round).to eq [1, -1, 0, 0] }
+  it { expect([1.1, [2.6, []]].round).to eq [1, [3, []]]}
+end
+
+describe 'Array.eround(n)' do
+	let!(:a) { [1.2347e-8, 1.2344e-8, 0.35162e-4, 1.2347e-6] }
+	it { expect(a.eround(3)).to eq [1.235e-8, 1.234e-8, 3.516e-5, 1.235e-6] }
+	it { expect([1.235e-8, [0.35162e-4, []]].eround(3)).to eq [1.235e-8, [3.516e-5, []]]}
 end
 
 describe 'Pseudo Inverse' do
@@ -51,6 +58,7 @@ describe 'Float Extensions' do
   describe 'float.eround(n)' do
     it { expect(1.2347e-8.eround(3)).to eq 1.235e-8 }
     it { expect(1.2347e-8.eround(0)).to eq 1.0e-8 }
+    it { expect(1.2347e-8.eround).to eq 1.0e-8 }
   end
 	describe 'round_down' do
 		it { expect(a.round_down).to eq 0.0  }

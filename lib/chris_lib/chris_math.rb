@@ -36,6 +36,10 @@ Array.class_eval do
   def round(decimal_points = 0)
     map { |e| e.round(decimal_points) }
   end
+
+  def eround(decimal_points = 0)
+    map { |e| e.eround(decimal_points) }
+  end
   
   # mean of array
   def mean
@@ -81,7 +85,7 @@ end
 
 Float.class_eval do
   # rounds exponential notation to n decimal places
-  def eround(decimal_points)
+  def eround(decimal_points = 0)
     ("%.#{decimal_points}e" % self).to_f
   end
 
