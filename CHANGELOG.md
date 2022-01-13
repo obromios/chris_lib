@@ -1,6 +1,7 @@
 # Version Information
 ## version 2.0.6
   - Add quaternion extras?
+  - Add to_rad and to_deg?
   - add r_runner to shell_methods
 ## version 2.0.5 6193f4c 512022-935
   - Add Float.eround
