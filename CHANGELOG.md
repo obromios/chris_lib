@@ -1,5 +1,7 @@
 # Version Information
-## version 2.0.6
+## version 2.0.7
+  -
+## version 2.0.6 adfe0f4 1322022-1641
   - Add quaternion extras
   - upgrade to actionpack to 6.1.4.6
   - Add to_rad and to_deg
