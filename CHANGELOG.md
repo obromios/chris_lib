@@ -1,6 +1,6 @@
 # Version Information
 ## version 2.0.6
-  - Add quaternion extras?
+  - Add quaternion extras
   - upgrade to actionpack to 6.1.4.6
   - Add to_rad and to_deg
   - add r_runner to shell_methods
