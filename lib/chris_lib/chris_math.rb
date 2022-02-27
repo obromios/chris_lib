@@ -1,4 +1,29 @@
 require 'matrix'
+require 'quaternion'
+Quaternion.class_eval do
+  # rounds each element of quaternion to n decimal places
+  def round(n)
+    q = self
+    Quaternion.new(q[0].round(n), q[1].round(n), q[2].round(n), q[3].round(n))
+  end
+
+  # Creates identity quaternion
+  def self.identity
+    Quaternion.new(1.0, 0.0, 0.0, 0.0)
+  end
+
+  # Creates zero quaternion
+  def self.zero
+    Quaternion.new(0.0, 0.0, 0.0, 0.0)
+  end
+  
+  # Creates quaternion using square brackets (for compatability with Matrix and Vector)
+  # see https://stackoverflow.com/questions/69155796/how-to-define-a-class-method-when-using-class-eval
+  def self.[](q0, q1, q2, q3)
+    Quaternion.new(q0, q1, q2, q3)
+  end
+end
+
 Integer.class_eval do
   def factorial
     n = self
@@ -32,9 +57,25 @@ Matrix.class_eval do
 end
 
 Array.class_eval do
+  # converts radians to degrees
+  # Also rounds to n_decimal places unless n_decimimals is nil
+  def to_deg(n_decimals = nil)
+    map { |e| e.to_deg(n_decimals) }   
+  end
+
+  # converts degrees to radians
+  # Also rounds to n_decimal places unless n_decimimals is nil
+  def to_rad(n_decimals = nil)
+    map { |e| e.to_rad(n_decimals) }
+  end
+
   # round each element
-  def round(n)
-    map { |e| e.round(n) }
+  def round(decimal_points = 0)
+    map { |e| e.round(decimal_points) }
+  end
+
+  def eround(decimal_points = 0)
+    map { |e| e.eround(decimal_points) }
   end
   
   # mean of array
@@ -80,6 +121,29 @@ Array.class_eval do
 end
 
 Float.class_eval do
+  # converts radians to degrees
+  # Also rounds to n_decimal places unless n_decimimals is nil
+  def to_deg(n_decimals = nil)
+    include Math unless defined?(Math)
+    degrees = self * 180.0 / PI
+    return degrees if n_decimals.nil?
+    degrees.round(n_decimals)    
+  end
+
+  # converts degrees to radians
+  # Also rounds to n_decimal places unless n_decimimals is nil
+  def to_rad(n_decimals = nil)
+    include Math unless defined?(Math)
+    radians = self * PI / 180.0
+    return radians if n_decimals.nil?
+    radians.round(n_decimals)
+  end
+
+  # rounds exponential notation to n decimal places
+  def eround(decimal_points = 0)
+    ("%.#{decimal_points}e" % self).to_f
+  end
+
   def round_down(n=0)
     # n is decimal place to round down at
     int,dec=self.to_s.split('.')

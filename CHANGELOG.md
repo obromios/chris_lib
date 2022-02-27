@@ -1,5 +1,20 @@
 # Version Information
-## version 2.0.3 e011bf6 2102021-1219
+## version 2.0.7
+  - Add Array.mean_vectors?
+  - Upgrade nokogiri to version 1.13.3
+## version 2.0.6 adfe0f4 1322022-1641
+  - Add quaternion extras
+  - upgrade to actionpack to 6.1.4.6
+  - Add to_rad and to_deg
+  - add r_runner to shell_methods
+## version 2.0.5 6193f4c 512022-935
+  - Add Float.eround
+  - Add Array.eround
+  - Update actionpack to 6.1.4.2 for security fix
+## version 2.0.4 e748b07 24122021-1046
+  - Add Array.round
+## version 2.0.3
+>>>>>>> 7c63a64e0b069587769673454308eefbdcaef76a
   - upgrade nokogiri for security
   - Add Array#round(n)
 ## version 2.0.2 668a3b2 492021-1647

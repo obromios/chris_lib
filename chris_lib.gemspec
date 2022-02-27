@@ -22,6 +22,8 @@ Gem::Specification.new do |s|
   # rubocop:enable LineLength
   s.add_dependency 'dotenv'
   s.add_dependency 'rails'
+  s.add_dependency 'actionpack', '~> 6.1.4', '>= 6.1.4.6'
+  s.add_dependency 'quaternion'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'nokogiri'
   s.add_development_dependency 'pry'

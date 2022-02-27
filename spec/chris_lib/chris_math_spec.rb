@@ -1,10 +1,66 @@
 # encoding: utf-8
 require 'spec_helper'
 require 'pp'
+include Math
+require 'quaternion'
+
+describe 'Quaternion extensions' do
+	describe 'quaternion.round(n)' do
+	  let!(:q) { Quaternion.new(1.003, -0.8345, 0.3456, 0.1345) }
+	  it { expect(q.round(2)).to eq Quaternion.new(1.00, -0.83, 0.35, 0.13) }
+	end
+
+	describe 'Quaternion.identity' do
+	  it { expect(Quaternion.identity).to eq Quaternion.new(1.0, 0.0, 0.0, 0.0) }
+	end
+
+	describe 'Quaternion.zero' do
+	  it { expect(Quaternion.zero).to eq Quaternion.new(0.0, 0.0, 0.0, 0.0) }
+	end
+
+	describe 'Quaternion initialization with brackets' do
+	  it { expect(Quaternion[1.0, 2.0, 3.0, 4.0]).to eq Quaternion.new(1.0, 2.0, 3.0, 4.0) }
+	end
+end
+
+describe 'Float degree-radian conversions' do
+  let!(:rad0) { PI / 6 }
+  let!(:rad1) { 58.316 / 180.0 * PI }
+  let!(:rad2) { 45 / 180.0 * PI }
+  describe 'Float.to_deg(n)' do
+    it { expect(rad0.to_deg).to be_within(1e-9).of  30.0 }
+    it { expect(rad1.to_deg(2)).to eq 58.32 }
+  end
+  describe 'Float.to_rad(n)' do
+    it { expect(30.0.to_rad).to be_within(1e-9).of rad0 }
+    it { expect(30.0.to_rad(3)).to eq 0.524 }
+  end
+
+  describe 'Array degree-radian conversions' do
+    describe 'Array.to_rad(n)' do
+      let!(:ary) { [[rad0, rad1], [rad0, []]]  }
+      it {expect(ary.to_deg.round(9)).to eq  [[30.0, 58.316], [30.0, []]] }
+      it {expect(ary.to_deg(2)).to eq  [[30.0, 58.32], [30.0, []]] }
+    end
+    describe 'Array.to_rad(n)' do
+      let!(:ary) { [[30.0, 45.0], [30.0, []]] }
+      it { expect(ary.to_rad.round(9)).to eq [[rad0.round(9), rad2.round(9)], [rad0.round(9), []]] }
+      it { expect(ary.to_rad.round(3)).to eq [[0.524, 0.785], [0.524, []]] }
+    end
+  end
+end
 
 describe 'Array.round(n)' do
   let!(:a) { [1.003, -0.8345, 0.3456, 0.1345] }
   it { expect(a.round(2)).to eq [1.00, -0.83, 0.35, 0.13] }
+  it { expect(a.round).to eq [1, -1, 0, 0] }
+  it { expect([1.1, [2.6, []]].round).to eq [1, [3, []]]}
+end
+
+describe 'Array.eround(n)' do
+	let!(:a) { [1.2347e-8, 1.2344e-8, 0.35162e-4, 1.2347e-6] }
+	it { expect(a.eround(3)).to eq [1.235e-8, 1.234e-8, 3.516e-5, 1.235e-6] }
+	it { expect([1.235e-8, [0.35162e-4, []]].eround(3)).to eq [1.235e-8, [3.516e-5, []]]}
 end
 
 describe 'Pseudo Inverse' do
@@ -47,6 +103,11 @@ end
 describe 'Float Extensions' do
 	let(:a) { 1.0 / 3}
 	let(:b) { 2.0 / 3}
+  describe 'float.eround(n)' do
+    it { expect(1.2347e-8.eround(3)).to eq 1.235e-8 }
+    it { expect(1.2347e-8.eround(0)).to eq 1.0e-8 }
+    it { expect(1.2347e-8.eround).to eq 1.0e-8 }
+  end
 	describe 'round_down' do
 		it { expect(a.round_down).to eq 0.0  }
 		it { expect(a.round_down(1)).to eq 0.3 }
