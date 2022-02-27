@@ -13,10 +13,6 @@
   - Update actionpack to 6.1.4.2 for security fix
 ## version 2.0.4 e748b07 24122021-1046
   - Add Array.round
-## version 2.0.3
->>>>>>> 7c63a64e0b069587769673454308eefbdcaef76a
-  - upgrade nokogiri for security
-  - Add Array#round(n)
 ## version 2.0.2 668a3b2 492021-1647
   - Really update to 6.1.4.1 for security
 ## version 2.0.1 8a2eeaf 2982021-938 2021-08-29
