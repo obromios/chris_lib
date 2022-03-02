@@ -154,7 +154,29 @@ describe "Array Extensions" do
 		let(:sigma){0.2887}
 		let(:tol){5*sigma/30}
 		it{expect(uniform.mean).to be_within(tol).of(mu)}
-		it{expect{[].mean}.to raise_error RuntimeError, "Length must be greater than 0."}
+		it{ expect{[].mean}.to raise_error RuntimeError, "chris_lib - f - Length must be greater than 0." }
+		context 'mean of an array of vectors' do
+			let!(:ary) { [Vector[0.0, -5.0, 100.0], Vector[0.6, -4.0, 101.0],
+										Vector[0.4, -3.0, 102.0] ]  }
+			context 'All elements are vectors' do
+				it { expect(ary.mean.class).to eq Vector }
+				it { expect(ary.mean[0]).to be_within(1e-6).of 1.0 / 3 }
+				it { expect(ary.mean[1]).to be_within(0).of(-4) }
+				it { expect(ary.mean[2]).to be_within(0).of 101 }
+			end
+			context 'Some elements are not vectors' do
+				it 'raises an exception' do
+					ary[1] = 0.11
+					expect { ary.mean }.to raise_error
+				end
+			end
+			context 'All elements are float or integer' do
+				it 'acts as normal' do
+					a = [1.0, 3.0, 5]
+					expect(a.mean).to eq 3.0
+				end
+			end
+		end
 	end
 	describe 'var' do
 		let(:uniform){(1..900).to_a.map!{rand()}}

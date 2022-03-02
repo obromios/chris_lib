@@ -80,8 +80,10 @@ Array.class_eval do
   
   # mean of array
   def mean
-    raise 'Length must be greater than 0.' if length < 1
-    sum.to_f / length
+    raise 'chris_lib - f - Length must be greater than 0.' if length < 1
+    return sum.to_f / length unless all? { |e| e.class == Vector }
+    ary = map { |v| v.to_a }.transpose.map { |a| a.mean }
+    Vector.elements ary
   end
 
   # unbiased sample variance of array
