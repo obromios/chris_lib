@@ -10,7 +10,7 @@ puts msg
 `git add .`
 `git commit -m "#{msg}"`
 puts "Pushing to github - may need personal access token".colorize(:yellow)
-puts "Find in Evernote or create at github/settings/developer"
+puts "Find in Evernote or create at github/settings/developer".colorize(:yellow)
 `git push origin master`
 puts 'Push to rubygems, need to enter OTP from Google Authenticator'.colorize(:yellow)
 system "gem push chris_lib-#{ChrisLib::VERSION}.gem"
