@@ -1,5 +1,7 @@
 # Version Information
-## version 2.0.8
+## version 2.0.9
+  -
+## version 2.0.8 b180a27 332022-1126
   - improve push_gems script
 ## version 2.0.7 52ab54a 332022-1110
   - Extend Array.mean to array of vectors
