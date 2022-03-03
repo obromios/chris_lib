@@ -1,5 +1,6 @@
 # Version Information
-## version 2.0.7
+## version 2.0.8
+## version 2.0.7 52ab54a 332022-1110
   - Extend Array.mean to array of vectors
   - Upgrade nokogiri to version 1.13.3
   - upgrade to ruby 2.7.5
