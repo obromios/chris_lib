@@ -167,7 +167,7 @@ describe "Array Extensions" do
 			context 'Some elements are not vectors' do
 				it 'raises an exception' do
 					ary[1] = 0.11
-					expect { ary.mean }.to raise_error
+					expect { ary.mean }.to raise_error ExceptionForMatrix::ErrOperationNotDefined
 				end
 			end
 			context 'All elements are float or integer' do

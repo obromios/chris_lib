@@ -1,7 +1,7 @@
 # Version Information
 ## version 2.0.9
-  - move rails etc to runtime_dependency
-  - remove text about security alert
+  - Upgrade to rails 6.1.5 for security fix
+  - remove text about security alert because not used by chris_lib code
 ## version 2.0.8 b180a27 332022-1126
   - improve push_gems script
 ## version 2.0.7 52ab54a 332022-1110

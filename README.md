@@ -18,9 +18,6 @@ And then execute:
 
     $ bundle
 
-## Security issue
-You may have noticed that Github has flagged the escape_javascript unknown_input [security issue](https://github.com/obromios/chris_lib/network/alert/Gemfile.lock/actionview/open).  We have not upgraded actionview, because this repository does not use the escape_javascript unknown_input method. If you do disagree with this explanation or have identified any potential security issues with this repository, please contact us.
-
 ## Usage
 
 The date methods are mainly to put date in some convenient formats.  For example to format a date in the Australian way, use `date.charmians_format` on a Date object.
