@@ -1,5 +1,7 @@
 # Version Information
-## version 2.0.9
+## version 2.0.10
+  -
+## version 2.0.9 74c0927 1132022-1631
   - Upgrade to rails 6.1.5 for security fix
   - remove text about security alert because not used by chris_lib code
 ## version 2.0.8 b180a27 332022-1126
