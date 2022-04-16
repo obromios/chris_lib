@@ -1,7 +1,7 @@
 # Version Information
 ## version 2.0.11
   - reduce runtime depencies?
-## version 2.0.10
+## version 2.0.10 6bc4ba2 1642022-1436
   - Upgrade to ruby 2.7.6 for security
   - Upgrade to nokogiri 1.13.4 for security
 ## version 2.0.9 74c0927 1132022-1631
