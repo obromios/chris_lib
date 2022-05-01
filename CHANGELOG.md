@@ -1,8 +1,8 @@
 # Version Information
 ## version 2.0.12
-  - reduce runtime depencies?
+  - reduce runtime dependencies?
   ## version 2.0.11
-    - reduce runtime depencies?
+    - Update actionpack and actionview for security'
 ## version 2.0.10 6bc4ba2 1642022-1436
   - Upgrade to ruby 2.7.6 for security
   - Upgrade to nokogiri 1.13.4 for security
