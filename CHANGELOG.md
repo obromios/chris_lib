@@ -1,6 +1,6 @@
 # Version Information
 ## version 2.0.12
-  - reduce runtime dependencies?
+  - Reduce the number of hard dependencies
   ## version 2.0.11 914649a 152022-1638
     - Update actionpack and actionview for security'
 ## version 2.0.10 6bc4ba2 1642022-1436

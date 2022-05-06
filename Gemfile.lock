@@ -1,12 +1,9 @@
 PATH
   remote: .
   specs:
-    chris_lib (2.0.11)
-      actionpack (~> 6.1.5, >= 6.1.5.1)
-      actionview (~> 6.1.5, >= 6.1.5.1)
+    chris_lib (2.1.0)
       dotenv
       quaternion
-      rails
 
 GEM
   remote: https://rubygems.org/
@@ -163,10 +160,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionpack (~> 6.1.5, >= 6.1.5.1)
+  actionview (~> 6.1.5, >= 6.1.5.1)
   chris_lib!
   colorize
   nokogiri
   pry
+  rails
   rspec
 
 BUNDLED WITH
