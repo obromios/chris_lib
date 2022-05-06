@@ -1,5 +1,6 @@
 # Version Information
-## version 2.0.12
+## version 2.1.1
+## version 2.1.0 4a05d39 652022-1725
   - Reduce the number of hard dependencies
   ## version 2.0.11 914649a 152022-1638
     - Update actionpack and actionview for security'
