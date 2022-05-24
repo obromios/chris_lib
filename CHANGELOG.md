@@ -1,5 +1,8 @@
 # Version Information
-## version 2.1.1
+## v2.1.2
+  -
+## v2.1.1 f6a3766 2452022-1743
+    - Update to nokogiri 1.13.6 for security.
 ## version 2.1.0 4a05d39 652022-1725
   - Reduce the number of hard dependencies
   ## version 2.0.11 914649a 152022-1638
