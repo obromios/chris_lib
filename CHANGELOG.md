@@ -1,6 +1,6 @@
 # Version Information
 ## v2.1.2
-  -
+  - Update rack for security
 ## v2.1.1 f6a3766 2452022-1743
     - Update to nokogiri 1.13.6 for security.
 ## version 2.1.0 4a05d39 652022-1725

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chris_lib (2.1.1)
+    chris_lib (2.1.2)
       dotenv
       quaternion
 
@@ -98,7 +98,7 @@ GEM
       method_source (~> 1.0)
     quaternion (0.1.2)
     racc (1.6.0)
-    rack (2.2.3)
+    rack (2.2.3.1)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.1.5.1)
