@@ -1,6 +1,6 @@
 # Version Information
 ## v2.1.3
-  -
+  - Update rails-html-sanitizer to 1.4.3 for security
 ## v2.1.2 f608481 1362022-1450
   - Update rack for security
 ## v2.1.1 f6a3766 2452022-1743
