@@ -1,5 +1,7 @@
 # Version Information
-## v2.1.4
+## v2.1.5
+  -
+## v2.1.4 52ca9b3 1572022-1933
   - Update to rails 6.1.6.1 for security
 ## v2.1.3 45d452d 872022-931
   - Update rails-html-sanitizer to 1.4.3 for security
