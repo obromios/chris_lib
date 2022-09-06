@@ -76,24 +76,6 @@ module ShellMethods
     system('heroku run rake util:warn_under_maintenance --remote production')
   end
 
-  def precompile_assets(target: 'local')
-    puts "Precompiling assets for #{target}"
-    if target == 'local'
-      asset_host = ENV['RAILS_HOST_PATH']
-    elsif target == 'staging'
-      asset_host = 'cstaging-golf.herokuapp.com'
-    elsif target == 'production'
-      asset_host = 'www.thegolfmentor.com'
-    else
-      raise "Invalid target for precompile: #{target}"
-    end
-    puts "precompile asset_host is #{asset_host}"
-    system("RAILS_ENV=production RAILS_HOST_PATH=#{asset_host} rake assets:precompile")
-    `git add .`
-    commit_msg = "Add precompiled assets for #{target}"
-    system(%[git commit -m "#{commit_msg}"])
-  end
-
   def time_hash
     time = Time.now
     time.day.to_s + time.month.to_s + time.year.to_s + '-' + time.hour.to_s + time.min.to_s
