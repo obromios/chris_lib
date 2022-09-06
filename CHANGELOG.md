@@ -1,13 +1,11 @@
 # Version Information
-<<<<<<< HEAD
-## v2.1.5
+## v2.1.5 fa34876 692022-1149
   - Remove ShellMethods.precompile_assets
   - update to rails 6.1.6.1 for security issues
 ## v2.1.4 52ca9b3 1572022-1933
   - Update to rails 6.1.6.1 for security
 ## v2.1.3 45d452d 872022-931
   - Update rails-html-sanitizer to 1.4.3 for security
->>>>>>> 6c0bf16f997039d0b190006136c4d53c2345a027
 ## v2.1.2 f608481 1362022-1450
   - Update rack for security
 ## v2.1.1 f6a3766 2452022-1743
