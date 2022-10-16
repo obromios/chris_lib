@@ -81,11 +81,14 @@ module ShellMethods
     time.day.to_s + time.month.to_s + time.year.to_s + '-' + time.hour.to_s + time.min.to_s
   end
 
+# change in response to
+#[DEPRECATED] `Bundler.with_clean_env` has been deprecated in favor of `Bundler.with_unbundled_env`. If you instead want the environment before bundler was originally loaded, use `Bundler.with_original_env`
+# remove this comment when clear that this works.
   def same_db_version(remote: nil)
     destination = (remote.nil? ? nil : "--remote #{remote}")
     lv = `rake db:version`
     puts 'Local version: ', lv
-    hv = Bundler.with_clean_env { 
+    hv = Bundler.with_unbund{ 
       `heroku run rake db:version #{destination}`
     }
     puts hv
