@@ -1,5 +1,6 @@
 # Version Information
-## v2.1.6
+## v2.1.7
+## v2.1.6 ac51e98 21102022-182
   - change Bundler.with_clean_env to Bundler.with_unbundled_env
   - update nokogiri to 1.13.9 for security
 ## v2.1.5 fa34876 692022-1149
