@@ -1,6 +1,7 @@
 # Version Information
 ## v2.1.6
   - change Bundler.with_clean_env to Bundler.with_unbundled_env
+  - update nokogiri to 1.13.9 for security
 ## v2.1.5 fa34876 692022-1149
   - Remove ShellMethods.precompile_assets
   - update to rails 6.1.6.1 for security issues

@@ -88,7 +88,7 @@ module ShellMethods
     destination = (remote.nil? ? nil : "--remote #{remote}")
     lv = `rake db:version`
     puts 'Local version: ', lv
-    hv = Bundler.with_unbund{ 
+    hv = Bundler.with_unbundled_env{ 
       `heroku run rake db:version #{destination}`
     }
     puts hv
