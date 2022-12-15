@@ -1,5 +1,7 @@
 # Version Information
-## v2.1.8
+## v21.9
+  -
+## v2.1.8 698c742 16122022-946
   - upgrade to ruby 3.1.3
 ## v2.1.7 21726d5 15122022-1135
   - Update nokogiri, rails-html-sanitizer for security, ATP
