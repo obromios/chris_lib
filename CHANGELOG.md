@@ -1,5 +1,7 @@
 # Version Information
-## v21.9
+## v2.2.0
+  -
+## v2.1.9 d3027f4 2512023-105
   - upgrade to rails 7.0.4.1
 ## v2.1.8 698c742 16122022-946
   - upgrade to ruby 3.1.3
