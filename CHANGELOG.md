@@ -1,6 +1,6 @@
 # Version Information
 ## v2.2.0
-  -
+  - update rails to 7.0.4.3 for security
 ## v2.1.9 d3027f4 2512023-105
   - upgrade to rails 7.0.4.1
 ## v2.1.8 698c742 16122022-946
