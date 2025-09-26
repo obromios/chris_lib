@@ -6,7 +6,12 @@ include ChrisLib
 include ShellMethods
 msg = "Build v#{ChrisLib::VERSION} of chris_lib".colorize(:green)
 puts msg
-`gem build chris_lib`
+puts 'Assuming all tests passed'.colorize(:yellow)
+puts 'Assuming you have run bundle exec yard doc'.colorize(:yellow)
+puts "Assuming version is higher than deployed version".colorize(:yellow)
+puts "press any key to continue or ctrl-c to abort".colorize(:red)
+$stdin.getch
+`gem build chris_lib`.colorize(:yellow)
 `git add .`
 `git commit -m "#{msg}"`
 puts "Pushing to github - may need personal access token".colorize(:yellow)
