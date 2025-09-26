@@ -900,6 +900,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -907,22 +920,26 @@
       <pre class="lines">
 
 
-253
-254
-255
-256
-257
-258
-259
-260
-261
-262
-263</pre>
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 253</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 292</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_acf'>acf</span><span class='lparen'>(</span><span class='id identifier rubyid_x_a'>x_a</span><span class='comma'>,</span> <span class='id identifier rubyid_lag'>lag</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lag must be a non-negative Integer</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_lag'>lag</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_lag'>lag</span> <span class='op'>&gt;=</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>x_a must respond to #size and #[ ]</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_x_a'>x_a</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:size</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_x_a'>x_a</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:[]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_x_a'>x_a</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Lag is too large, n = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_n'>n</span><span class='embexpr_end'>}</span><span class='tstring_content'>, lag = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_lag'>lag</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_lag'>lag</span> <span class='op'>+</span> <span class='int'>1</span>
 
@@ -1009,6 +1026,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1016,19 +1046,23 @@
       <pre class="lines">
 
 
-449
-450
-451
-452
-453
-454
-455
-456</pre>
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 449</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 505</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_arbitrary_cdf_a'>arbitrary_cdf_a</span><span class='lparen'>(</span><span class='id identifier rubyid_func'>func</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='label'>n_samples:</span> <span class='int'>100</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n_samples must be greater than 1</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_n_samples'>n_samples</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>&gt;</span> <span class='int'>1</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>function must be defined</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id identifier rubyid_func'>func</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_width'>width</span> <span class='op'>=</span> <span class='float'>8.0</span>
   <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='id identifier rubyid_width'>width</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x_a'>x_a</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='int'>1</span><span class='op'>..</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='op'>-</span><span class='id identifier rubyid_width'>width</span> <span class='op'>/</span> <span class='int'>2</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_h'>h</span> <span class='rbrace'>}</span>
@@ -1121,28 +1155,46 @@
       <pre class="lines">
 
 
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200</pre>
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 185</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 207</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bias_estimate_by_min'>bias_estimate_by_min</span><span class='lparen'>(</span><span class='id identifier rubyid_store'>store</span><span class='comma'>,</span> <span class='label'>win_loss_calculator:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>minimizer_class:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_win_loss'>win_loss</span> <span class='op'>=</span> <span class='id identifier rubyid_win_loss_calculator'>win_loss_calculator</span> <span class='op'>||</span> <span class='id identifier rubyid_default_win_loss_calculator'>default_win_loss_calculator</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_store'>store</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:histogram</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_store'>store</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:min</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_store'>store</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:max</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>store must respond to :histogram, :min, and :max</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_histogram_data'>histogram_data</span> <span class='op'>=</span> <span class='id identifier rubyid_store'>store</span><span class='period'>.</span><span class='id identifier rubyid_histogram'>histogram</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_histogram_data'>histogram_data</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:[]</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_histogram_data'>histogram_data</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>store.histogram must include counts in the first slot</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
 
   <span class='id identifier rubyid_fn'>fn</span> <span class='op'>=</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
     <span class='id identifier rubyid_bins'>bins</span> <span class='op'>=</span> <span class='id identifier rubyid_store'>store</span><span class='period'>.</span><span class='id identifier rubyid_histogram'>histogram</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_bin_shift'>bin_shift</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1152,7 +1204,11 @@
     <span class='lparen'>(</span><span class='id identifier rubyid_outcome'>outcome</span> <span class='op'>-</span> <span class='float'>50.0</span><span class='rparen'>)</span><span class='op'>**</span><span class='int'>2</span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_minimizer'>minimizer</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_minimizer_class'>minimizer_class</span> <span class='op'>||</span> <span class='id identifier rubyid_default_minimizer_class'>default_minimizer_class</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_store'>store</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span><span class='comma'>,</span> <span class='id identifier rubyid_store'>store</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span><span class='comma'>,</span> <span class='id identifier rubyid_fn'>fn</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_minimizer_class'>minimizer_class</span> <span class='op'>||=</span> <span class='id identifier rubyid_default_minimizer_class'>default_minimizer_class</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_minimizer_class'>minimizer_class</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:new</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>minimizer_class must respond to .new</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_minimizer'>minimizer</span> <span class='op'>=</span> <span class='id identifier rubyid_minimizer_class'>minimizer_class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_store'>store</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span><span class='comma'>,</span> <span class='id identifier rubyid_store'>store</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span><span class='comma'>,</span> <span class='id identifier rubyid_fn'>fn</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_minimizer'>minimizer</span><span class='period'>.</span><span class='id identifier rubyid_expected'>expected</span> <span class='op'>=</span> <span class='float'>0.0</span> <span class='kw'>if</span> <span class='id identifier rubyid_minimizer'>minimizer</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:expected=</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_minimizer'>minimizer</span><span class='period'>.</span><span class='id identifier rubyid_iterate'>iterate</span>
   <span class='op'>-</span><span class='id identifier rubyid_minimizer'>minimizer</span><span class='period'>.</span><span class='id identifier rubyid_x_minimum'>x_minimum</span>
@@ -1270,6 +1326,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1277,18 +1346,20 @@
       <pre class="lines">
 
 
-477
-478
-479
-480
-481
-482</pre>
+536
+537
+538
+539
+540
+541
+542</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 477</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 536</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cdf_calc'>cdf_calc</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_func'>func</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='label'>mu:</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>sigma:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>n_pts:</span> <span class='int'>100</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>n_pts must be even (received n_pts=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_n_pts'>n_pts</span><span class='embexpr_end'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_n_pts'>n_pts</span><span class='period'>.</span><span class='id identifier rubyid_even?'>even?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>integration function must be defined</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id identifier rubyid_func'>func</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='id identifier rubyid_mu'>mu</span> <span class='op'>&lt;</span> <span class='op'>-</span><span class='int'>3</span> <span class='op'>*</span> <span class='id identifier rubyid_sigma'>sigma</span> <span class='op'>?</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='int'>2</span> <span class='op'>*</span> <span class='id identifier rubyid_sigma'>sigma</span> <span class='op'>+</span> <span class='id identifier rubyid_mu'>mu</span> <span class='op'>:</span> <span class='op'>-</span><span class='int'>5</span> <span class='op'>*</span> <span class='id identifier rubyid_sigma'>sigma</span> <span class='op'>+</span> <span class='id identifier rubyid_mu'>mu</span>
   <span class='id identifier rubyid_simpson'>simpson</span><span class='lparen'>(</span><span class='id identifier rubyid_func'>func</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_n_pts'>n_pts</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -1337,12 +1408,12 @@
       <pre class="lines">
 
 
-345
-346
-347</pre>
+396
+397
+398</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 345</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 396</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cdf_from_bins'>cdf_from_bins</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_pdf_from_bins'>pdf_from_bins</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_cdf_from_pdf'>cdf_from_pdf</span>
@@ -1396,15 +1467,25 @@
       <pre class="lines">
 
 
-496
-497
-498</pre>
+557
+558
+559
+560
+561
+562
+563
+564</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 496</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 557</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_computer_name_short'>computer_name_short</span>
-  <span class='backtick'>`</span><span class='tstring_content'>hostname</span><span class='tstring_end'>`</span></span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='int'>9</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_host'>host</span> <span class='op'>=</span> <span class='backtick'>`</span><span class='tstring_content'>hostname</span><span class='tstring_end'>`</span></span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_host'>host</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='id identifier rubyid_host'>host</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>computer_name_short could not determine hostname</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>return</span> <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_host'>host</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='int'>9</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1484,6 +1565,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1491,16 +1585,18 @@
       <pre class="lines">
 
 
-489
-490
-491
-492
-493</pre>
+549
+550
+551
+552
+553
+554</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 489</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 549</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delimit'>delimit</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_delimiter'>delimiter</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_separator'>separator</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>number must respond to #to_s</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:to_s</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_parts'>parts</span> <span class='op'>=</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_parts'>parts</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(\d)(?=(\d\d\d)+(?!\d))</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\1</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_delimiter'>delimiter</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_parts'>parts</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span> <span class='id identifier rubyid_separator'>separator</span>
@@ -1568,6 +1664,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1575,22 +1684,26 @@
       <pre class="lines">
 
 
-170
-171
-172
-173
-174
-175
-176
-177
-178</pre>
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 170</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 190</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fvu'>fvu</span><span class='lparen'>(</span><span class='label'>y_hat_a:</span><span class='comma'>,</span> <span class='label'>y_a:</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TGM - y_hat_a must be greater than 1</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_y_hat_a'>y_hat_a</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&lt;</span> <span class='int'>2</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TGM - y_hat_a.size != y_a.size</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_y_hat_a'>y_hat_a</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='id identifier rubyid_y_a'>y_a</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>y_hat_a must respond to #size and #zip</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_y_hat_a'>y_hat_a</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:size</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_y_hat_a'>y_hat_a</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:zip</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>y_a must respond to #size</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_y_a'>y_a</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:size</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>y_hat_a must contain at least two values</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_y_hat_a'>y_hat_a</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&lt;</span> <span class='int'>2</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>y_hat_a and y_a must be the same length</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_y_hat_a'>y_hat_a</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='id identifier rubyid_y_a'>y_a</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
 
   <span class='id identifier rubyid_ss_err'>ss_err</span> <span class='op'>=</span> <span class='id identifier rubyid_y_hat_a'>y_hat_a</span><span class='period'>.</span><span class='id identifier rubyid_zip'>zip</span><span class='lparen'>(</span><span class='id identifier rubyid_y_a'>y_a</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_yh'>yh</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='op'>|</span> <span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span> <span class='op'>-</span> <span class='id identifier rubyid_yh'>yh</span><span class='rparen'>)</span><span class='op'>**</span><span class='int'>2</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
   <span class='id identifier rubyid_y_mu'>y_mu</span> <span class='op'>=</span> <span class='id identifier rubyid_y_a'>y_a</span><span class='period'>.</span><span class='id identifier rubyid_mean'>mean</span>
@@ -1665,6 +1778,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1672,20 +1798,22 @@
       <pre class="lines">
 
 
-239
-240
-241
-242
-243
-244
-245
-246
-247</pre>
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 239</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 277</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inc_m2_var'>inc_m2_var</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_accumulator'>accumulator</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>accumulator must be an array of [mean, m2, n]</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_accumulator'>accumulator</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Array</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_accumulator'>accumulator</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='int'>3</span>
   <span class='id identifier rubyid_mean'>mean</span><span class='comma'>,</span> <span class='id identifier rubyid_m2'>m2</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_accumulator'>accumulator</span>
   <span class='id identifier rubyid_n'>n</span> <span class='op'>+=</span> <span class='int'>1</span>
   <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='id identifier rubyid_mean'>mean</span>
@@ -1738,13 +1866,13 @@
       <pre class="lines">
 
 
-439
-440
-441
-442</pre>
+495
+496
+497
+498</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 439</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 495</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_interpolate'>interpolate</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_x_L'>x_L</span><span class='comma'>,</span> <span class='id identifier rubyid_x_U'>x_U</span><span class='comma'>,</span> <span class='id identifier rubyid_y_L'>y_L</span><span class='comma'>,</span> <span class='id identifier rubyid_y_U'>y_U</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_m'>m</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_y_U'>y_U</span> <span class='op'>-</span> <span class='id identifier rubyid_y_L'>y_L</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id identifier rubyid_x_U'>x_U</span> <span class='op'>-</span> <span class='id identifier rubyid_x_L'>x_L</span><span class='rparen'>)</span>
@@ -1802,6 +1930,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1809,23 +1950,25 @@
       <pre class="lines">
 
 
-424
-425
-426
-427
-428
-429
-430
-431
-432
-433
-434
-435</pre>
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 424</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 479</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inverse_transform_rand'>inverse_transform_rand</span><span class='lparen'>(</span><span class='id identifier rubyid_cdf_a'>cdf_a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cdf_a must be an array of coordinate pairs</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_cdf_a'>cdf_a</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:map</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_cdf_a'>cdf_a</span><span class='period'>.</span><span class='id identifier rubyid_all?'>all?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pair'>pair</span><span class='op'>|</span> <span class='id identifier rubyid_pair'>pair</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Array</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_pair'>pair</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;=</span> <span class='int'>2</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_p_a'>p_a</span> <span class='op'>=</span> <span class='id identifier rubyid_cdf_a'>cdf_a</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pair'>pair</span><span class='op'>|</span> <span class='id identifier rubyid_pair'>pair</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_x_a'>x_a</span> <span class='op'>=</span> <span class='id identifier rubyid_cdf_a'>cdf_a</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pair'>pair</span><span class='op'>|</span> <span class='id identifier rubyid_pair'>pair</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_p_min'>p_min</span> <span class='op'>=</span> <span class='id identifier rubyid_p_a'>p_a</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
@@ -1896,12 +2039,12 @@
       <pre class="lines">
 
 
-363
-364
-365</pre>
+415
+416
+417</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 363</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 415</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_normal_cdf'>normal_cdf</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='float'>0.5</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='int'>1</span> <span class='op'>+</span> <span class='id identifier rubyid_erf'>erf</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span> <span class='op'>/</span> <span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -1976,6 +2119,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1983,20 +2139,22 @@
       <pre class="lines">
 
 
-353
-354
-355
-356
-357
-358</pre>
+404
+405
+406
+407
+408
+409
+410</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 353</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 404</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_normal_pdf'>normal_pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>mu:</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>sigma:</span> <span class='int'>1</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_mu'>mu</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:mu</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_sigma'>sigma</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:sigma</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sigma must be positive</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_sigma'>sigma</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Numeric</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_sigma'>sigma</span><span class='period'>.</span><span class='id identifier rubyid_positive?'>positive?</span>
   <span class='const'>E</span><span class='op'>**</span><span class='lparen'>(</span><span class='op'>-</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='id identifier rubyid_mu'>mu</span><span class='rparen'>)</span><span class='op'>**</span><span class='int'>2</span> <span class='op'>/</span> <span class='int'>2</span> <span class='op'>/</span> <span class='id identifier rubyid_sigma'>sigma</span><span class='op'>**</span><span class='int'>2</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='int'>2</span> <span class='op'>*</span> <span class='const'>PI</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_sigma'>sigma</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2056,6 +2214,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -2068,12 +2239,18 @@
 16
 17
 18
-19</pre>
+19
+20
+21
+22</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_outcome'>outcome</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>results must respond to #each</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>results cannot be empty</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
   <span class='id identifier rubyid_s_min'>s_min</span> <span class='op'>=</span> <span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
   <span class='id identifier rubyid_flags'>flags</span> <span class='op'>=</span> <span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_value'>value</span><span class='op'>|</span> <span class='id identifier rubyid_value'>value</span> <span class='op'>==</span> <span class='id identifier rubyid_s_min'>s_min</span> <span class='op'>?</span> <span class='int'>1</span> <span class='op'>:</span> <span class='int'>0</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_total'>total</span> <span class='op'>=</span> <span class='id identifier rubyid_flags'>flags</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='period'>.</span><span class='id identifier rubyid_nonzero?'>nonzero?</span> <span class='op'>||</span> <span class='int'>1</span>
@@ -2151,16 +2328,16 @@
       <pre class="lines">
 
 
-387
-388
-389
-390
-391
-392
-393</pre>
+440
+441
+442
+443
+444
+445
+446</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 387</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 440</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parabola'>parabola</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>a:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>b:</span> <span class='int'>3</span><span class='comma'>,</span> <span class='label'>c:</span> <span class='int'>4</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -2206,6 +2383,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -2213,15 +2403,17 @@
       <pre class="lines">
 
 
-338
-339
-340
-341</pre>
+388
+389
+390
+391
+392</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 338</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 388</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pdf_from_bins'>pdf_from_bins</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bins must respond to #sum and #each_with_index</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:sum</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:each_with_index</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_total'>total</span> <span class='op'>=</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='period'>.</span><span class='id identifier rubyid_nonzero?'>nonzero?</span> <span class='op'>||</span> <span class='int'>1</span>
   <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_bin'>bin</span><span class='comma'>,</span> <span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_min'>min</span> <span class='op'>*</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>+</span> <span class='id identifier rubyid_i'>i</span> <span class='op'>*</span> <span class='id identifier rubyid_delta'>delta</span><span class='comma'>,</span> <span class='id identifier rubyid_bin'>bin</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='id identifier rubyid_total'>total</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span>
 <span class='kw'>end</span></pre>
@@ -2297,15 +2489,21 @@
       <pre class="lines">
 
 
-206
-207
-208
-209</pre>
+239
+240
+241
+242
+243
+244
+245</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 206</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 239</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pdf_from_hist'>pdf_from_hist</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='label'>min:</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:each_with_index</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:sum</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bins must respond to #each_with_index and #sum</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
   <span class='id identifier rubyid_total'>total</span> <span class='op'>=</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='period'>.</span><span class='id identifier rubyid_nonzero?'>nonzero?</span> <span class='op'>||</span> <span class='int'>1</span>
   <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='period'>.</span><span class='id identifier rubyid_with_index'>with_index</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span> <span class='op'>+</span> <span class='id identifier rubyid_min'>min</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='id identifier rubyid_total'>total</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span>
 <span class='kw'>end</span></pre>
@@ -2412,6 +2610,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -2419,21 +2630,23 @@
       <pre class="lines">
 
 
-402
-403
-404
-405
-406
-407
-408
-409
-410</pre>
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 402</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 455</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_simpson'>simpson</span><span class='lparen'>(</span><span class='id identifier rubyid_func'>func</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>n must be even (received n=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_n'>n</span><span class='embexpr_end'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_even?'>even?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>integration function must be defined</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id identifier rubyid_func'>func</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_b'>b</span> <span class='op'>-</span> <span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='id identifier rubyid_n'>n</span>
   <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_func'>func</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_func'>func</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -2478,6 +2691,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -2485,19 +2711,21 @@
       <pre class="lines">
 
 
-460
-461
-462
-463
-464
-465
-466
-467</pre>
+518
+519
+520
+521
+522
+523
+524
+525
+526</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 460</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 518</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_skew_normal_cdf_a'>skew_normal_cdf_a</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='label'>n_samples:</span> <span class='int'>100</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n_samples must be greater than 1</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_n_samples'>n_samples</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>&gt;</span> <span class='int'>1</span>
   <span class='id identifier rubyid_width'>width</span> <span class='op'>=</span> <span class='float'>8.0</span>
   <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='id identifier rubyid_width'>width</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x_a'>x_a</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='int'>1</span><span class='op'>..</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='op'>-</span><span class='id identifier rubyid_width'>width</span> <span class='op'>/</span> <span class='int'>2</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_h'>h</span> <span class='rbrace'>}</span>
@@ -2570,6 +2798,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -2577,18 +2818,20 @@
       <pre class="lines">
 
 
-371
-372
-373
-374
-375</pre>
+423
+424
+425
+426
+427
+428</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 371</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 423</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_skew_normal_pdf'>skew_normal_pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>alpha:</span> <span class='int'>0</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>alpha:</span> <span class='int'>0</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_alpha'>alpha</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:alpha</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>alpha must be numeric</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_alpha'>alpha</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Numeric</span><span class='rparen'>)</span>
   <span class='int'>2</span> <span class='op'>*</span> <span class='id identifier rubyid_normal_pdf'>normal_pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_normal_cdf'>normal_cdf</span><span class='lparen'>(</span><span class='id identifier rubyid_alpha'>alpha</span> <span class='op'>*</span> <span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2635,12 +2878,12 @@
       <pre class="lines">
 
 
-379
-380
-381</pre>
+432
+433
+434</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 379</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 432</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_skew_normal_rand'>skew_normal_rand</span><span class='lparen'>(</span><span class='id identifier rubyid__x'>_x</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>alpha:</span> <span class='int'>0</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_cdf_calc'>cdf_calc</span><span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='comma'>,</span> <span class='symbol'>:normal_pdf</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>mu:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>sigma:</span> <span class='int'>4</span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>n_pts:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>sigma:</span> <span class='int'>4</span><span class='comma'>,</span> <span class='label'>mu:</span> <span class='int'>2</span><span class='rparen'>)</span>
@@ -2708,6 +2951,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -2715,15 +2971,17 @@
       <pre class="lines">
 
 
-416
-417
-418
-419</pre>
+470
+471
+472
+473
+474</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 416</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 470</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_skew_normal_rand_a'>skew_normal_rand_a</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='id identifier rubyid_alpha'>alpha</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n must be a positive Integer</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_positive?'>positive?</span>
   <span class='id identifier rubyid_cdf_a'>cdf_a</span> <span class='op'>=</span> <span class='id identifier rubyid_arbitrary_cdf_a'>arbitrary_cdf_a</span><span class='lparen'>(</span><span class='symbol'>:skew_normal_pdf</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>alpha:</span> <span class='id identifier rubyid_alpha'>alpha</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='lparen'>(</span><span class='int'>1</span><span class='op'>..</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_inverse_transform_rand'>inverse_transform_rand</span><span class='lparen'>(</span><span class='id identifier rubyid_cdf_a'>cdf_a</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
@@ -2790,6 +3048,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -2797,30 +3068,34 @@
       <pre class="lines">
 
 
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233</pre>
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 215</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 251</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_summed_bins_histogram'>summed_bins_histogram</span><span class='lparen'>(</span><span class='id identifier rubyid_x_y'>x_y</span><span class='comma'>,</span> <span class='id identifier rubyid_n_bins'>n_bins</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>x_y must respond to #transpose</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_x_y'>x_y</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:transpose</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n_bins must be a positive Integer</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_n_bins'>n_bins</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_n_bins'>n_bins</span><span class='period'>.</span><span class='id identifier rubyid_positive?'>positive?</span>
   <span class='id identifier rubyid_x_a'>x_a</span> <span class='op'>=</span> <span class='id identifier rubyid_x_y'>x_y</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_y_a'>y_a</span> <span class='op'>=</span> <span class='id identifier rubyid_x_y'>x_y</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span class='id identifier rubyid_x_a'>x_a</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
@@ -2888,12 +3163,12 @@
       <pre class="lines">
 
 
-162
-163
-164</pre>
+182
+183
+184</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 162</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 182</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_test'>test</span>
   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>here</span><span class='tstring_end'>&#39;</span></span>
@@ -2935,6 +3210,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -2942,21 +3230,25 @@
       <pre class="lines">
 
 
-312
-313
-314
-315
-316
-317
-318
-319
-320
-321</pre>
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 312</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 358</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weighted_m_3'>weighted_m_3</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_mu'>mu</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bins must respond to #sum and #each_with_index</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:sum</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:each_with_index</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mu must be Numeric</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_mu'>mu</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Numeric</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>&lt;</span> <span class='int'>1</span>
 
@@ -3003,6 +3295,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -3010,21 +3315,25 @@
       <pre class="lines">
 
 
-325
-326
-327
-328
-329
-330
-331
-332
-333
-334</pre>
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 325</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 373</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weighted_m_4'>weighted_m_4</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_mu'>mu</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bins must respond to #sum and #each_with_index</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:sum</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:each_with_index</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mu must be Numeric</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_mu'>mu</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Numeric</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>&lt;</span> <span class='int'>1</span>
 
@@ -3112,6 +3421,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -3119,19 +3441,21 @@
       <pre class="lines">
 
 
-270
-271
-272
-273
-274
-275
-276
-277</pre>
+311
+312
+313
+314
+315
+316
+317
+318
+319</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 270</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 311</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weighted_mean'>weighted_mean</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bins must respond to #sum and #each_with_index</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:sum</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:each_with_index</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
 
   <span class='id identifier rubyid_sum'>sum</span> <span class='op'>=</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_w'>w</span><span class='comma'>,</span> <span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
@@ -3228,6 +3552,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -3235,20 +3572,24 @@
       <pre class="lines">
 
 
-285
-286
-287
-288
-289
-290
-291
-292
-293</pre>
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 285</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 327</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weighted_sd'>weighted_sd</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_mu'>mu</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bins must respond to #sum and #each_with_index</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:sum</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:each_with_index</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mu must be Numeric</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_mu'>mu</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Numeric</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span> <span class='op'>&lt;</span> <span class='int'>2</span>
 
   <span class='id identifier rubyid_sum'>sum</span> <span class='op'>=</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_w'>w</span><span class='comma'>,</span> <span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
@@ -3346,6 +3687,19 @@
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -3353,19 +3707,23 @@
       <pre class="lines">
 
 
-301
-302
-303
-304
-305
-306
-307
-308</pre>
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 301</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 345</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weighted_skewness'>weighted_skewness</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_mu'>mu</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bins must respond to #sum and #each_with_index</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:sum</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:each_with_index</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#ForChrisLibError-constant" title="ForChrisLibError (constant)">ForChrisLibError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mu must be Numeric</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_mu'>mu</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Numeric</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>&lt;</span> <span class='int'>2</span>
 
@@ -3383,7 +3741,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Sep 26 12:19:42 2025 by
+  Generated on Fri Sep 26 15:30:05 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.4.2).
 </div>
