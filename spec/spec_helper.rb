@@ -1,9 +1,26 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-require 'bundler/setup'
-Bundler.setup
+begin
+  require 'bundler/setup'
+  Bundler.setup
+rescue LoadError, NoMethodError => e
+  warn "Bundler setup skipped: #{e.message}"
+end
+
+%w[base64 bigdecimal logger mutex_m ostruct].each do |lib|
+  begin
+    require lib
+  rescue LoadError => e
+    warn "Optional stdlib dependency #{lib} skipped: #{e.message}"
+  end
+end
 
 require 'pry'
-require 'rails'
+
+begin
+  require 'rails'
+rescue LoadError => e
+  warn "Rails not available for specs: #{e.message}"
+end
 require 'chris_lib'
 
 RSpec.configure do |config|

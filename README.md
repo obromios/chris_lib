@@ -20,11 +20,39 @@ And then execute:
 
 ## Usage
 
-The date methods are mainly to put date in some convenient formats.  For example to format a date in the Australian way, use `date.charmians_format` on a Date object.
+### Core extensions
 
-The ```test_access``` methods can eliminate those repetitive access tests for controllers.
+- `DateExt` extends `Date` with helpers such as `#charmians_format` for Australian-style formatting and `#us_format_with_weekday` for full weekday strings.
+- `TestAccess` ships an RSpec macro (`it_should_route_to`) that keeps controller access tests terse.
+- `ChrisMath` enriches Ruby core classes (`Array`, `Float`, `Matrix`, `Quaternion`, etc.) with linear algebra and statistics helpers.
 
-The maths methods include median and other statistical functions.
+### ForChrisLib additions
+
+`ForChrisLib` bundles the analytical helpers that previously lived in golf_lab. Include it whenever you need the extras:
+
+```ruby
+require 'chris_lib'
+include ForChrisLib
+
+outcome([71, 69, 75])
+# => [0.0, 1.0, 0.0]
+
+pdf_from_hist([3, 5, 2], min: -1)
+# => {-1=>0.3, 0=>0.5, 1=>0.2}
+```
+
+Highlights include:
+
+- `ChiSquaredStdErr` for quick goodness-of-fit tests from means and standard errors.
+- Histogram tooling (`pdf_from_hist`, `summed_bins_histogram`, `bin_shift`) for exploratory analysis.
+- Weighted statistics (`weighted_mean`, `weighted_sd`, `weighted_skewness`).
+- Numerical integration helpers (`simpson`, `cdf_calc`) and inverse-transform sampling utilities.
+
+Some helpers depend on optional gems:
+
+- `minimization` is used by `bias_estimate_by_min` unless you inject a custom minimiser.
+
+Ruby 3.4 treats many standard libraries (`base64`, `bigdecimal`, `logger`, `mutex_m`, `ostruct`, `date`) as default gems. If you see warnings about them not being loaded, add the corresponding gems to your Gemfile or run `gem pristine <name>` inside your Ruby 3.4.2 gemset.
 
 ## Contributing
 There is no need to contribute, but in case you feel you have to...

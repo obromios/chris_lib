@@ -1,13 +1,18 @@
 module TestAccess
-	# A rspec macro to test access security for controllers, call <tt>it_should_route_to(path,actions)</tt>
-  # where path is a string of the form <tt>url_path</tt> and actions is a hash of symbols
-  # that represent actions to be protected. 
-  # An example call is <tt>it_should_route_to('login_path',:edit,:update)</tt>.  The call is
-  # made in a describe or context block with a preceding <tt>require TestAccess</tt>.
+	# An RSpec helper that verifies protected controller actions redirect to a login path.
   #
+  # Include the module and call {#it_should_route_to} with the protected actions:
+  #
+  #   it_should_route_to('login_path', [:edit, :update])
+  #
+  # Optionally provide a `flash_message` expectation.
 	module ExampleMethods
 	end
 	module ExampleGroupMethods
+	  # Define a set of expectations that each action redirects to the provided path.
+	  # @param path [String] helper method name that resolves to the desired redirect URL
+	  # @param actions [Array<Symbol>]
+	  # @param flash_message [String, nil] text to match in `flash[:error]`
 	  def it_should_route_to(path,actions,flash_message=nil)
 			actions.each do |a|
 				it "should deny access to #{a}" do

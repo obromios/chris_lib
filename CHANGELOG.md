@@ -1,4 +1,10 @@
 # Version Information
+## Unreleased
+  - document existing ChrisLib helpers with YARD-style comments
+  - add ForChrisLib module (minus IntFair) and comprehensive specs
+  - replace statistics2 dependency with pure Ruby chi-squared survival function
+  - relax spec helper to tolerate missing default gems on Ruby 3.4
+  - expand README with ForChrisLib usage and optional dependency guidance
 ## v2.2.2
   - add many new methods and classes
   - upgrade to rails 8.0.3
@@ -127,4 +133,3 @@
 
 ## Notes
   - option + m to open this file in browser with Sublime Text
-

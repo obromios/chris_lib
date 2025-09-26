@@ -1,40 +1,55 @@
-# methods for bash ruby scripts
+# Helpers for shell-friendly Ruby scripts and deployment utilities.
 module ShellMethods
   require 'dotenv'
   require 'bundler'
   require 'optparse'
   Dotenv.load
 
-  # runs an R script from ruby
-  # script_path is absolute path of R script
-  # arg1 is an argument passed to script, can access in R by
-  # arg1 <- commandArgs(trailingOnly=TRUE)[1]
+  # Run an R script via `Rscript --vanilla`
+  #
+  # @param script_path [String] absolute path to the R script
+  # @param arg1 [String] first argument passed to the script (accessible in R via `commandArgs(trailingOnly=TRUE)[1]`)
+  # @return [String] stdout from the R script
   def r_runner(script_path, arg1)
     `Rscript --vanilla #{script_path} #{arg1}`
   end
 
+  # @param file_path [String]
+  # @return [Integer] file size in bytes
   def file_size(file_path)
     `stat -f%z #{file_path}`.to_i
   end
 
+  # Send an iMessage to the "admin" buddy on macOS.
+  # @param msg [String]
+  # @return [String]
   def osx_imessage_admin(msg)
     `osascript -e 'tell application "Messages" to send "#{msg}" to buddy "admin"'`
   end
 
+  # Trigger a macOS notification via AppleScript.
+  # @param msg [String]
+  # @param title [String]
+  # @return [String]
   def osx_notification(msg, title)
     `osascript -e 'display notification "#{msg}" with title "#{title}"'`
   end
 
+  # @return [String] hostname of the current machine
   def osx_hostname
     `hostname`
   end
 
-  # mail to osx user
-  # https://stackoverflow.com/q/41602984/1299362
+  # Mail the signed-in macOS user using the BSD `mail` command.
+  # @param subject [String]
+  # @param body [String]
+  # @return [String]
   def osx_send_mail(subject, body = nil)
     `echo "#{body}" | mail -s "#{subject}" 'Chris'`
   end
 
+  # Parse CLI options for deployment scripts.
+  # @return [Hash] options hash with keys :skip_migration, :fast, :special_rake
   def parse_options
     @options = {}
     OptionParser.new do |opts|
@@ -51,16 +66,22 @@ module ShellMethods
     @options[:skip_migration] = true   if @options[:fast]
   end
 
+  # Placeholder for future custom rake tasks.
+  # @raise [RuntimeError] always, prompting implementers to override
   def run_special_rake_task
     fail 'Need to implement by asking for name of rake task and
     also requiring confirmation'
   end
 
+  # Create a Postgres snapshot by delegating to `script/getSnapShot.sh`.
+  # @return [Boolean] command exit status
   def backup_database
     file_path = "../backups/prod#{time_hash}.dump"
     system('./script/getSnapShot.sh production ' + file_path)
   end
 
+  # Notify users of an impending deploy via Heroku and progress bar countdown.
+  # @return [void]
   def warn_users
     system('heroku run rake util:three_min_warning --remote production')
     # spend one minute precompiling 
@@ -76,6 +97,8 @@ module ShellMethods
     system('heroku run rake util:warn_under_maintenance --remote production')
   end
 
+  # Timestamp helper used to build backup filenames.
+  # @return [String]
   def time_hash
     time = Time.now
     time.day.to_s + time.month.to_s + time.year.to_s + '-' + time.hour.to_s + time.min.to_s
@@ -84,6 +107,9 @@ module ShellMethods
 # change in response to
 #[DEPRECATED] `Bundler.with_clean_env` has been deprecated in favor of `Bundler.with_unbundled_env`. If you instead want the environment before bundler was originally loaded, use `Bundler.with_original_env`
 # remove this comment when clear that this works.
+  # Compare local and remote database schema versions.
+  # @param remote [String, nil] Heroku remote name
+  # @return [Boolean, nil] true when versions match, false when mismatched, nil when versions cannot be read
   def same_db_version(remote: nil)
     destination = (remote.nil? ? nil : "--remote #{remote}")
     lv = `rake db:version`
@@ -102,6 +128,7 @@ module ShellMethods
     l_version == h_version
   end
 
+  # Ensure git workspace is clean before deploying.
   def check_git_clean
     puts "Checking git status"
     gs = `git status`
@@ -110,6 +137,7 @@ module ShellMethods
     exit 1
   end
 
+  # Verify that `chris_lib` is up to date before deploying.
   def check_chris_lib_status
     gs=`cd ../chris_lib;git status`; lr=$?.successful?
     return unless gs['working tree clean'].nil? && gs['up-to-date'].nil?
@@ -118,6 +146,10 @@ module ShellMethods
     system('cd $OLDPWD')
   end
 
+  # Optionally run migrations if local and remote schema versions differ.
+  # @param remote [String, nil]
+  # @param skip_migration [Boolean]
+  # @return [void]
   def migrate_if_necessary(remote: nil, skip_migration: false)
     if skip_migration
       puts "No migration will be performed due to --fast or --skip_migration options"
@@ -137,6 +169,9 @@ module ShellMethods
     end
   end
 
+  # Notify Rollbar of a new deploy via its API.
+  # @param access_token [String, nil]
+  # @return [void]
   def notify_rollbar_of_deploy(access_token: nil)
     system("ACCESS_TOKEN=#{access_token}")
     system("ENVIRONMENT=production")
