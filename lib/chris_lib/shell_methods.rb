@@ -10,20 +10,40 @@ module ShellMethods
   # @param script_path [String] absolute path to the R script
   # @param arg1 [String] first argument passed to the script (accessible in R via `commandArgs(trailingOnly=TRUE)[1]`)
   # @return [String] stdout from the R script
+  # @note Warns and returns `nil` when the script is missing.
   def r_runner(script_path, arg1)
-    `Rscript --vanilla #{script_path} #{arg1}`
+    raise ArgumentError, 'script_path must be provided' unless script_path.respond_to?(:to_s)
+    path = script_path.to_s
+    unless File.exist?(path)
+      warn "r_runner: #{path} does not exist"
+      return nil
+    end
+    arg = arg1.to_s
+    `Rscript --vanilla #{path} #{arg}`
   end
 
   # @param file_path [String]
   # @return [Integer] file size in bytes
+  # @note Returns 0 and warns when the file is missing.
   def file_size(file_path)
-    `stat -f%z #{file_path}`.to_i
+    raise ArgumentError, 'file_path must be provided' unless file_path.respond_to?(:to_s)
+    path = file_path.to_s
+    unless File.exist?(path)
+      warn "file_size: #{path} does not exist"
+      return 0
+    end
+    `stat -f%z #{path}`.to_i
   end
 
   # Send an iMessage to the "admin" buddy on macOS.
   # @param msg [String]
   # @return [String]
+  # @note Warns and no-ops when `msg` is blank.
   def osx_imessage_admin(msg)
+    if msg.nil? || msg.strip.empty?
+      warn 'osx_imessage_admin called without a message; skipping'
+      return nil
+    end
     `osascript -e 'tell application "Messages" to send "#{msg}" to buddy "admin"'`
   end
 
@@ -31,7 +51,16 @@ module ShellMethods
   # @param msg [String]
   # @param title [String]
   # @return [String]
+  # @note Warns and no-ops when `msg` is blank. Supplies a default title when missing.
   def osx_notification(msg, title)
+    if msg.nil? || msg.strip.empty?
+      warn 'osx_notification called without a message; skipping'
+      return nil
+    end
+    if title.nil? || title.strip.empty?
+      warn 'osx_notification called without a title; using default'
+      title = 'Notification'
+    end
     `osascript -e 'display notification "#{msg}" with title "#{title}"'`
   end
 
@@ -44,7 +73,12 @@ module ShellMethods
   # @param subject [String]
   # @param body [String]
   # @return [String]
+  # @note Warns and no-ops when `subject` is blank.
   def osx_send_mail(subject, body = nil)
+    if subject.nil? || subject.strip.empty?
+      warn 'osx_send_mail called without a subject; skipping'
+      return nil
+    end
     `echo "#{body}" | mail -s "#{subject}" 'Chris'`
   end
 
@@ -173,6 +207,7 @@ module ShellMethods
   # @param access_token [String, nil]
   # @return [void]
   def notify_rollbar_of_deploy(access_token: nil)
+    warn 'notify_rollbar_of_deploy called without access token' if access_token.nil? || access_token.empty?
     system("ACCESS_TOKEN=#{access_token}")
     system("ENVIRONMENT=production")
     system("LOCAL_USERNAME=`whoami`")

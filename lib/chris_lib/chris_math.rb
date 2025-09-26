@@ -215,7 +215,13 @@ module ChrisMath
   # Generates normally distributed random numbers using Box-Muller
   # @param n [Integer] number of samples to generate
   # @return [Array<Float>] array of N(0,1) samples
+  # @note Returns an empty array and warns when `n <= 0`.
   def gaussian_array(n = 1)
+    raise ArgumentError, 'n must be an Integer' unless n.is_a?(Integer)
+    if n <= 0
+      warn 'gaussian_array called with non-positive sample size; returning empty array'
+      return []
+    end
     (1..n).map do
       u1 = rand()
       u2 = rand()
@@ -237,7 +243,17 @@ module ChrisMath
   # @param mean [Numeric]
   # @param std [Numeric]
   # @return [Float]
+  # @note Warns when `std <= 0`, returning the mean or using the absolute value.
   def gaussian_rand(mean,std)
+    raise ArgumentError, 'mean must be Numeric' unless mean.is_a?(Numeric)
+    raise ArgumentError, 'std must be Numeric' unless std.is_a?(Numeric)
+    if std.negative?
+      warn 'std supplied to gaussian_rand was negative; using absolute value'
+      std = std.abs
+    elsif std.zero?
+      warn 'std supplied to gaussian_rand was zero; returning mean'
+      return mean
+    end
     u1 = rand()
     u2 = rand()
     z0 = sqrt(-2*log(u1))*cos(2*PI*u2)
@@ -250,6 +266,7 @@ module ChrisMath
   # @return [Float]
   # @raise [RuntimeError] when fewer than two observations are provided
   def std(values)
+    raise ArgumentError, 'values must respond to #length and #inject' unless values.respond_to?(:length) && values.respond_to?(:inject)
     n = values.length
     raise 'n = #{n} but must be greater than 1' if n < 2
     m = mean(values)
@@ -265,6 +282,9 @@ module ChrisMath
   # @return [Float]
   # @raise [RuntimeError] when r is outside 0..n
   def combinatorial_distribution(n,r,p)
+    raise ArgumentError, 'n must be a non-negative Integer' unless n.is_a?(Integer) && n >= 0
+    raise ArgumentError, 'r must be a non-negative Integer' unless r.is_a?(Integer) && r >= 0
+    raise ArgumentError, 'p must be between 0 and 1' unless p.is_a?(Numeric) && p.between?(0.0,1.0)
     # probability that r out n or greater hits with the 
     # probability of one hit is p.
     if r <= n && r >= 0
@@ -281,8 +301,14 @@ module ChrisMath
   # Factorial without overflow protection
   # @param n [Integer]
   # @return [Integer]
+  # @note Warns and returns `nil` when `n` is negative.
   def factorial(n)
     #from rosetta code
+    raise ArgumentError, 'n must be an Integer' unless n.is_a?(Integer)
+    if n.negative?
+      warn 'factorial called with negative n; returning nil'
+      return nil
+    end
     (1..n).inject {|prod, i| prod * i}
   end
   
@@ -292,6 +318,9 @@ module ChrisMath
   # @return [Integer]
   def combinatorial(n, k)
     #from rosetta code
+    raise ArgumentError, 'n must be a non-negative Integer' unless n.is_a?(Integer) && n >= 0
+    raise ArgumentError, 'k must be a non-negative Integer' unless k.is_a?(Integer) && k >= 0
+    raise ArgumentError, 'k must be <= n' if k > n
     (0...k).inject(1) do |m,i| (m * (n - i)) / (i + 1) end
   end
   

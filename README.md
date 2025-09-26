@@ -68,6 +68,9 @@ Some helpers depend on optional gems:
 
 Ruby 3.4 treats many standard libraries (`base64`, `bigdecimal`, `logger`, `mutex_m`, `ostruct`, `date`) as default gems. If you see warnings about them not being loaded, add the corresponding gems to your Gemfile or run `gem pristine <name>` inside your Ruby 3.4.2 gemset.
 
+## Acknowledgments
+The chris_lib gem is supported by [The Golf Mentor](https://www.thegolfmentor.com).
+
 ## Contributing
 There is no need to contribute, but in case you feel you have to...
 

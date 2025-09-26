@@ -17,7 +17,14 @@ module TestAccess
 	  # @param actions [Array<Symbol>]
 	  # @param flash_message [String, nil] text to match in `flash[:error]`
 	  def it_should_route_to(path,actions,flash_message=nil)
+			raise ArgumentError, 'path must respond to #to_s' unless path.respond_to?(:to_s)
+			actions = Array(actions)
+			if actions.empty?
+				warn 'it_should_route_to called with no actions; nothing to verify'
+				return
+			end
 			actions.each do |a|
+				raise ArgumentError, "action #{a.inspect} must respond to #to_sym" unless a.respond_to?(:to_sym)
 				it "should deny access to #{a}" do
           if Rails::VERSION::MAJOR >= 5
             get a.to_sym, params: { id: 1}
@@ -41,6 +48,9 @@ module TestAccess
   end
   # @!visibility private
   def self.included(receiver)
+    unless receiver.respond_to?(:it)
+      warn 'TestAccess included into an object without RSpec example support'
+    end
     receiver.extend         ExampleGroupMethods
     receiver.send :include, ExampleMethods
   end

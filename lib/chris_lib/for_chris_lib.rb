@@ -12,6 +12,9 @@ module ForChrisLib
   # @param results [Array<Numeric>]
   # @return [Array<Float>] probability mass for each input
   def outcome(results)
+    raise ForChrisLibError, 'results must respond to #each' unless results.respond_to?(:each)
+    results = results.to_a
+    raise ForChrisLibError, 'results cannot be empty' if results.empty?
     s_min = results.min
     flags = results.map { |value| value == s_min ? 1 : 0 }
     total = flags.sum.nonzero? || 1
@@ -25,11 +28,24 @@ module ForChrisLib
     # @param mus [Array<Numeric>] hypothesised means
     # @param confidence_level [Float]
     def initialize(means, std_errs, mus, confidence_level: 0.95)
+      [means, std_errs, mus].each do |collection|
+        unless collection.respond_to?(:to_a)
+          raise ArgumentError, 'means, std_errs, and mus must be enumerable'
+        end
+      end
       @means = means
       @std_errs = std_errs
       @mus = mus
       @confidence_level = confidence_level
       check_confidence_level
+      raise ForChrisLibError, 'means, std_errs, and mus must be the same length' unless means.size == std_errs.size && means.size == mus.size
+      raise ForChrisLibError, 'means cannot be empty' if means.empty?
+      if std_errs.any? { |se| !se.is_a?(Numeric) }
+        raise ForChrisLibError, 'std_errs must all be numeric'
+      end
+      if std_errs.any?(&:zero?)
+        raise ForChrisLibError, 'std_errs must be non-zero to avoid division by zero'
+      end
       @threshold = 1 - confidence_level
     end
 
@@ -63,6 +79,8 @@ module ForChrisLib
     # @param nu [Numeric] chi-squared statistic
     # @return [Float] upper-tail probability
     def call(dof, nu)
+      raise ArgumentError, 'degrees of freedom must be positive' unless dof.is_a?(Numeric) && dof.positive?
+      raise ArgumentError, 'chi-squared statistic must be non-negative' unless nu.is_a?(Numeric) && nu >= 0
       if calculator
         return calculator.call(dof, nu)
       end
@@ -137,10 +155,12 @@ module ForChrisLib
     def initialize(header, rows)
       raise 'header must be an array' unless header.is_a?(Array)
       raise 'rows must be an array' unless rows.is_a?(Array)
+      raise 'header cannot be empty' if header.empty?
 
       @hsh = { header: header, rows: rows }
 
       rows.each_with_index do |row, index|
+        raise "row #{index} must respond to #size" unless row.respond_to?(:size)
         next if row.size == header.size
 
         raise "row #{index} size not equal to header size"
@@ -168,8 +188,10 @@ module ForChrisLib
   # @param y_a [Array<Numeric>]
   # @return [Float]
   def fvu(y_hat_a:, y_a:)
-    raise 'TGM - y_hat_a must be greater than 1' if y_hat_a.size < 2
-    raise 'TGM - y_hat_a.size != y_a.size' unless y_hat_a.size == y_a.size
+    raise ForChrisLibError, 'y_hat_a must respond to #size and #zip' unless y_hat_a.respond_to?(:size) && y_hat_a.respond_to?(:zip)
+    raise ForChrisLibError, 'y_a must respond to #size' unless y_a.respond_to?(:size)
+    raise ForChrisLibError, 'y_hat_a must contain at least two values' if y_hat_a.size < 2
+    raise ForChrisLibError, 'y_hat_a and y_a must be the same length' unless y_hat_a.size == y_a.size
 
     ss_err = y_hat_a.zip(y_a).sum { |yh, y| (y - yh)**2 }.to_f
     y_mu = y_a.mean
@@ -184,6 +206,13 @@ module ForChrisLib
   # @return [Float]
   def bias_estimate_by_min(store, win_loss_calculator: nil, minimizer_class: nil)
     win_loss = win_loss_calculator || default_win_loss_calculator
+    unless store.respond_to?(:histogram) && store.respond_to?(:min) && store.respond_to?(:max)
+      raise ForChrisLibError, 'store must respond to :histogram, :min, and :max'
+    end
+    histogram_data = store.histogram
+    unless histogram_data.respond_to?(:[]) && histogram_data[0]
+      raise ForChrisLibError, 'store.histogram must include counts in the first slot'
+    end
 
     fn = lambda do |x|
       bins = store.histogram[0].bin_shift(x)
@@ -193,7 +222,11 @@ module ForChrisLib
       (outcome - 50.0)**2
     end
 
-    minimizer = (minimizer_class || default_minimizer_class).new(store.min, store.max, fn)
+    minimizer_class ||= default_minimizer_class
+    unless minimizer_class.respond_to?(:new)
+      raise ForChrisLibError, 'minimizer_class must respond to .new'
+    end
+    minimizer = minimizer_class.new(store.min, store.max, fn)
     minimizer.expected = 0.0 if minimizer.respond_to?(:expected=)
     minimizer.iterate
     -minimizer.x_minimum
@@ -204,6 +237,9 @@ module ForChrisLib
   # @param min [Integer]
   # @return [Hash{Integer=>Float}]
   def pdf_from_hist(bins, min: 0)
+    unless bins.respond_to?(:each_with_index) && bins.respond_to?(:sum)
+      raise ForChrisLibError, 'bins must respond to #each_with_index and #sum'
+    end
     total = bins.sum.nonzero? || 1
     bins.map.with_index { |b, i| [i + min, b.to_f / total] }.to_h
   end
@@ -213,6 +249,8 @@ module ForChrisLib
   # @param n_bins [Integer]
   # @return [Array<Array<Float, Numeric, Integer>>]
   def summed_bins_histogram(x_y, n_bins)
+    raise ForChrisLibError, 'x_y must respond to #transpose' unless x_y.respond_to?(:transpose)
+    raise ForChrisLibError, 'n_bins must be a positive Integer' unless n_bins.is_a?(Integer) && n_bins.positive?
     x_a = x_y.transpose[0]
     y_a = x_y.transpose[1]
     min = x_a.min
@@ -237,6 +275,7 @@ module ForChrisLib
   # @param accumulator [Array<Numeric>] [mean, m2, n]
   # @return [Array<Numeric>]
   def inc_m2_var(x, accumulator)
+    raise ForChrisLibError, 'accumulator must be an array of [mean, m2, n]' unless accumulator.is_a?(Array) && accumulator.size == 3
     mean, m2, n = accumulator
     n += 1
     delta = x - mean
@@ -251,6 +290,8 @@ module ForChrisLib
   # @param lag [Integer]
   # @return [Float]
   def acf(x_a, lag)
+    raise ForChrisLibError, 'lag must be a non-negative Integer' unless lag.is_a?(Integer) && lag >= 0
+    raise ForChrisLibError, 'x_a must respond to #size and #[ ]' unless x_a.respond_to?(:size) && x_a.respond_to?(:[])
     n = x_a.size
     raise "Lag is too large, n = #{n}, lag = #{lag}" if n < lag + 1
 
@@ -268,6 +309,7 @@ module ForChrisLib
   # @param delta [Numeric]
   # @return [Float, nil]
   def weighted_mean(bins, min = 0, delta = 1)
+    raise ForChrisLibError, 'bins must respond to #sum and #each_with_index' unless bins.respond_to?(:sum) && bins.respond_to?(:each_with_index)
     return nil if bins.sum.zero?
 
     sum = bins.each_with_index.sum do |w, i|
@@ -283,6 +325,8 @@ module ForChrisLib
   # @param delta [Numeric]
   # @return [Float, nil]
   def weighted_sd(bins, mu, min = 0, delta = 1)
+    raise ForChrisLibError, 'bins must respond to #sum and #each_with_index' unless bins.respond_to?(:sum) && bins.respond_to?(:each_with_index)
+    raise ForChrisLibError, 'mu must be Numeric' unless mu.is_a?(Numeric)
     return nil if bins.sum < 2
 
     sum = bins.each_with_index.sum do |w, i|
@@ -299,6 +343,8 @@ module ForChrisLib
   # @param delta [Numeric]
   # @return [Float, nil]
   def weighted_skewness(bins, mu, min = 0, delta = 1)
+    raise ForChrisLibError, 'bins must respond to #sum and #each_with_index' unless bins.respond_to?(:sum) && bins.respond_to?(:each_with_index)
+    raise ForChrisLibError, 'mu must be Numeric' unless mu.is_a?(Numeric)
     n = bins.sum
     return nil if n < 2
 
@@ -310,6 +356,8 @@ module ForChrisLib
   # Weighted third central moment.
   # @return [Float, nil]
   def weighted_m_3(bins, mu, min = 0, delta = 1)
+    raise ForChrisLibError, 'bins must respond to #sum and #each_with_index' unless bins.respond_to?(:sum) && bins.respond_to?(:each_with_index)
+    raise ForChrisLibError, 'mu must be Numeric' unless mu.is_a?(Numeric)
     n = bins.sum
     return if n < 1
 
@@ -323,6 +371,8 @@ module ForChrisLib
   # Weighted fourth central moment.
   # @return [Float, nil]
   def weighted_m_4(bins, mu, min = 0, delta = 1)
+    raise ForChrisLibError, 'bins must respond to #sum and #each_with_index' unless bins.respond_to?(:sum) && bins.respond_to?(:each_with_index)
+    raise ForChrisLibError, 'mu must be Numeric' unless mu.is_a?(Numeric)
     n = bins.sum
     return if n < 1
 
@@ -336,6 +386,7 @@ module ForChrisLib
   # Probability mass function derived from histogram bins.
   # @return [Hash{Numeric=>Float}]
   def pdf_from_bins(bins, min = 0, delta = 1)
+    raise ForChrisLibError, 'bins must respond to #sum and #each_with_index' unless bins.respond_to?(:sum) && bins.respond_to?(:each_with_index)
     total = bins.sum.nonzero? || 1
     bins.each_with_index.map { |bin, i| [min * delta + i * delta, bin.to_f / total] }.to_h
   end
@@ -354,6 +405,7 @@ module ForChrisLib
     params = { mu: 0, sigma: 1 }.merge(options)
     mu = params[:mu]
     sigma = params[:sigma]
+    raise ForChrisLibError, 'sigma must be positive' unless sigma.is_a?(Numeric) && sigma.positive?
     E**(-(x - mu)**2 / 2 / sigma**2) / sqrt(2 * PI) / sigma
   end
 
@@ -371,6 +423,7 @@ module ForChrisLib
   def skew_normal_pdf(x, options = { alpha: 0 })
     params = { alpha: 0 }.merge(options)
     alpha = params[:alpha]
+    raise ForChrisLibError, 'alpha must be numeric' unless alpha.is_a?(Numeric)
     2 * normal_pdf(x) * normal_cdf(alpha * x)
   end
 
@@ -401,6 +454,7 @@ module ForChrisLib
   # @return [Float]
   def simpson(func, a, b, n, options = {})
     raise "n must be even (received n=#{n})" unless n.even?
+    raise ForChrisLibError, 'integration function must be defined' unless respond_to?(func)
 
     h = (b - a).to_f / n
     s = send(func, a, options) + send(func, b, options)
@@ -414,6 +468,7 @@ module ForChrisLib
   # @param alpha [Numeric]
   # @return [Array<Float>]
   def skew_normal_rand_a(n, alpha)
+    raise ForChrisLibError, 'n must be a positive Integer' unless n.is_a?(Integer) && n.positive?
     cdf_a = arbitrary_cdf_a(:skew_normal_pdf, { alpha: alpha })
     (1..n).map { inverse_transform_rand(cdf_a) }
   end
@@ -422,6 +477,7 @@ module ForChrisLib
   # @param cdf_a [Array<Array(Float, Float)>]
   # @return [Float]
   def inverse_transform_rand(cdf_a)
+    raise ForChrisLibError, 'cdf_a must be an array of coordinate pairs' unless cdf_a.respond_to?(:map) && cdf_a.all? { |pair| pair.is_a?(Array) && pair.size >= 2 }
     p_a = cdf_a.map { |pair| pair[1] }
     x_a = cdf_a.map { |pair| pair[0] }
     p_min = p_a.first
@@ -447,6 +503,8 @@ module ForChrisLib
   # @param n_samples [Integer]
   # @return [Array<Array<Float, Float>>]
   def arbitrary_cdf_a(func, options, n_samples: 100)
+    raise ForChrisLibError, 'n_samples must be greater than 1' unless n_samples.is_a?(Integer) && n_samples > 1
+    raise ForChrisLibError, 'function must be defined' unless respond_to?(func)
     width = 8.0
     h = width / (n_samples - 1)
     x_a = (1..n_samples).map { |i| -width / 2 + (i - 1) * h }
@@ -458,6 +516,7 @@ module ForChrisLib
   # Discretised skew-normal cumulative distribution function.
   # @return [Array<Array<Float, Float>>]
   def skew_normal_cdf_a(options, n_samples: 100)
+    raise ForChrisLibError, 'n_samples must be greater than 1' unless n_samples.is_a?(Integer) && n_samples > 1
     width = 8.0
     h = width / (n_samples - 1)
     x_a = (1..n_samples).map { |i| -width / 2 + (i - 1) * h }
@@ -476,6 +535,7 @@ module ForChrisLib
   # @return [Float]
   def cdf_calc(x, func, options, mu: 0, sigma: 1, n_pts: 100)
     raise "n_pts must be even (received n_pts=#{n_pts})" unless n_pts.even?
+    raise ForChrisLibError, 'integration function must be defined' unless respond_to?(func)
 
     a = x - mu < -3 * sigma ? x - 2 * sigma + mu : -5 * sigma + mu
     simpson(func, a, x, n_pts, options)
@@ -487,6 +547,7 @@ module ForChrisLib
   # @param separator [String]
   # @return [String]
   def delimit(number, delimiter = ',', separator = '.')
+    raise ForChrisLibError, 'number must respond to #to_s' unless number.respond_to?(:to_s)
     parts = number.to_s.split('.')
     parts[0].gsub!(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1#{delimiter}")
     parts.join separator
@@ -494,7 +555,12 @@ module ForChrisLib
 
   # @return [String] hostname truncated to ten characters
   def computer_name_short
-    `hostname`[0..9]
+    host = `hostname`
+    if host.nil? || host.empty?
+      warn 'computer_name_short could not determine hostname'
+      return nil
+    end
+    host[0..9]
   end
 
   private
@@ -551,6 +617,7 @@ Array.class_eval do
   # Pad nested arrays with nil so all sub-arrays share a length.
   # @return [Array<Array>]
   def pad_sub_arrays!
+    raise ForChrisLibError, 'pad_sub_arrays! requires an array of arrays' unless all? { |a| a.is_a?(Array) }
     max_len = map(&:length).max
     map do |a|
       len = a.length
@@ -565,12 +632,14 @@ Array.class_eval do
   # Remove nil padding created by {#pad_sub_arrays!}.
   # @return [Array<Array>]
   def unpad_sub_arrays!
+    raise ForChrisLibError, 'unpad_sub_arrays! requires an array of arrays' unless all? { |a| a.is_a?(Array) }
     map(&:compact)
   end
 
   # Histogram of rounded integers derived from the array values.
   # @return [Hash{Integer=>Integer}]
   def histogram_int
+    raise ForChrisLibError, 'histogram_int requires numeric values' unless all? { |x| x.respond_to?(:round) }
     hsh = Hash.new(0)
     each { |x| hsh[x.round] += 1 }
     hsh.sort_by { |k, _| k }.to_h
@@ -580,6 +649,8 @@ Array.class_eval do
   # @param x [Float]
   # @return [Array<Float>]
   def bin_shift(x)
+    raise ForChrisLibError, 'bin_shift requires numeric bins' unless all? { |v| v.is_a?(Numeric) }
+    raise ForChrisLibError, 'shift must be numeric' unless x.is_a?(Numeric)
     i_max = length - 1
     return self if x.zero?
 
@@ -608,6 +679,8 @@ Array.class_eval do
   # @param j [Integer]
   # @return [Array<Numeric>]
   def bin_int_shift(j)
+    raise ForChrisLibError, 'bin_int_shift requires numeric bins' unless all? { |v| v.is_a?(Numeric) }
+    raise ForChrisLibError, 'shift must be an Integer' unless j.is_a?(Integer)
     i_max = length - 1
     if j.zero?
       self
@@ -657,6 +730,7 @@ Array.class_eval do
   # Apply {Float#sigmoid} element-wise.
   # @return [Array<Integer>]
   def sigmoid
+    raise ForChrisLibError, 'sigmoid requires numeric values' unless all? { |v| v.is_a?(Numeric) }
     map do |v|
       if v > 0
         1
@@ -672,6 +746,7 @@ Array.class_eval do
   # @param x [Numeric]
   # @return [Numeric]
   def interpolate(x)
+    raise ForChrisLibError, 'interpolate requires a two-column array' unless all? { |pair| pair.is_a?(Array) && pair.size >= 2 }
     x_a = transpose[0]
     x_min = x_a[0]
     x_max = x_a[-1]

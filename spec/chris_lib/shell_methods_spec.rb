@@ -6,5 +6,19 @@ describe ShellMethods  do
 			expect(time_hash).to eq '3082014-1311'
 		end
 	end
-end
 
+	describe '#osx_send_mail' do
+		include ShellMethods
+		it 'warns when subject is blank' do
+			expect { osx_send_mail(' ') }.to output(/subject/).to_stderr
+		end
+	end
+
+	describe '#r_runner' do
+		include ShellMethods
+		it 'warns when script is missing' do
+			allow(File).to receive(:exist?).and_return(false)
+			expect { r_runner('/missing/script.R', 'arg') }.to output(/does not exist/).to_stderr
+		end
+	end
+end

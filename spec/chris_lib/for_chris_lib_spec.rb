@@ -22,6 +22,10 @@ RSpec.describe ForChrisLib do
     it 'handles negative winners' do
       expect(outcome([-1, 1, 1])).to eq([1, 0, 0])
     end
+
+    it 'raises when given empty input' do
+      expect { outcome([]) }.to raise_error(ForChrisLibError, /cannot be empty/)
+    end
   end
 
   describe 'padding and unpadding sub-arrays' do
@@ -30,6 +34,10 @@ RSpec.describe ForChrisLib do
         ary = [[1,2,3], [1,2], [], [1], [5, 6, 7]].pad_sub_arrays!
         expect(ary.all? { |a| a.length == 3 }).to be true
       end
+
+      it 'raises when elements are not arrays' do
+        expect { [1, [2]].pad_sub_arrays! }.to raise_error(ForChrisLibError)
+      end
     end
 
     describe '#unpad_sub_arrays!' do
@@ -37,6 +45,10 @@ RSpec.describe ForChrisLib do
         original = [[1,2,3], [1,2], [], [1], [5, 6, 7]]
         copy = original.deep_dup.pad_sub_arrays!.unpad_sub_arrays!
         expect(copy).to eq(original)
+      end
+
+      it 'raises when sub-elements are not arrays' do
+        expect { [1, [2]].unpad_sub_arrays! }.to raise_error(ForChrisLibError)
       end
     end
   end
@@ -58,6 +70,22 @@ RSpec.describe ForChrisLib do
         expect do
           described_class.new(means, std_errs, mus, confidence_level: 0.0)
         end.to raise_error(ForChrisLibError)
+      end
+    end
+
+    context 'when array lengths mismatch' do
+      it 'raises ForChrisLibError' do
+        expect do
+          described_class.new(means, std_errs.drop(1), mus)
+        end.to raise_error(ForChrisLibError, /same length/)
+      end
+    end
+
+    context 'when a standard error is zero' do
+      it 'raises ForChrisLibError' do
+        expect do
+          described_class.new(means, [0, *std_errs.drop(1)], mus)
+        end.to raise_error(ForChrisLibError, /non-zero/)
       end
     end
 
@@ -99,6 +127,12 @@ RSpec.describe ForChrisLib do
     it 'delegates probability calculation to injected calculator' do
       calculator = ->(_dof, _nu) { 0.42 }
       expect(described_class.new(calculator: calculator).call(2, 3)).to eq(0.42)
+    end
+
+    it 'validates arguments' do
+      calculator = described_class.new
+      expect { calculator.call(0, 1) }.to raise_error(ArgumentError)
+      expect { calculator.call(1, -1) }.to raise_error(ArgumentError)
     end
   end
 
@@ -206,11 +240,21 @@ RSpec.describe ForChrisLib do
         bias_estimate_by_min(store, minimizer_class: StubMinimizer)
       end.to raise_error(ForChrisLibError)
     end
+
+    it 'validates store interface' do
+      expect do
+        bias_estimate_by_min(Object.new, minimizer_class: StubMinimizer, win_loss_calculator: StubWinLoss.new)
+      end.to raise_error(ForChrisLibError)
+    end
   end
 
   describe '#pdf_from_hist' do
     it 'converts histogram counts into probability mass' do
       expect(pdf_from_hist([1, 1, 2], min: -1)).to eq({ -1 => 0.25, 0 => 0.25, 1 => 0.5 })
+    end
+
+    it 'validates bins input' do
+      expect { pdf_from_hist(nil) }.to raise_error(ForChrisLibError)
     end
   end
 
@@ -223,6 +267,10 @@ RSpec.describe ForChrisLib do
       expect(result[1]).to eq([2, 0, -1, 0, 1])
       expect(result[2]).to eq([2, 0, 3, 0, 1])
     end
+
+    it 'raises when n_bins is invalid' do
+      expect { summed_bins_histogram(points, 0) }.to raise_error(ForChrisLibError)
+    end
   end
 
   describe '#inc_m2_var' do
@@ -234,6 +282,10 @@ RSpec.describe ForChrisLib do
       expect((acc[1] / (data.size - 1))).to eq(data.var)
       expect(acc[2]).to eq(data.size)
     end
+
+    it 'validates accumulator structure' do
+      expect { inc_m2_var(1, []) }.to raise_error(ForChrisLibError)
+    end
   end
 
   describe '#acf' do
@@ -244,6 +296,10 @@ RSpec.describe ForChrisLib do
 
     it 'validates lag size' do
       expect { acf([1, 2], 5) }.to raise_error('Lag is too large, n = 2, lag = 5')
+    end
+
+    it 'validates lag sign' do
+      expect { acf([1, 2, 3], -1) }.to raise_error(ForChrisLibError)
     end
   end
 
@@ -269,6 +325,10 @@ RSpec.describe ForChrisLib do
       expect(weighted_m_3(bins, mu)).to be_within(1e-6).of(-0.259259)
       expect(weighted_m_4(bins, mu)).to be_within(1e-6).of(0.629629)
     end
+
+    it 'validates bins input' do
+      expect { weighted_mean(nil) }.to raise_error(ForChrisLibError)
+    end
   end
 
   describe '#pdf_from_bins/#cdf_from_bins' do
@@ -287,6 +347,10 @@ RSpec.describe ForChrisLib do
     it 'evaluates standard normal density' do
       expect(normal_pdf(0).round(4)).to eq(0.3989)
     end
+
+    it 'validates sigma argument' do
+      expect { normal_pdf(0, sigma: 0) }.to raise_error(ForChrisLibError)
+    end
   end
 
   describe '#normal_cdf' do
@@ -301,6 +365,10 @@ RSpec.describe ForChrisLib do
       expect(result.length).to eq(5)
       expect(result.first.size).to eq(2)
     end
+
+    it 'validates sample size' do
+      expect { skew_normal_cdf_a({}, n_samples: 1) }.to raise_error(ForChrisLibError)
+    end
   end
 
   describe '#cdf_calc' do
@@ -308,12 +376,22 @@ RSpec.describe ForChrisLib do
       value = cdf_calc(0, :normal_pdf, { mu: 0, sigma: 1 }, n_pts: 100)
       expect(value).to be_within(5e-3).of(0.5)
     end
+
+    it 'validates function availability' do
+      expect { cdf_calc(0, :missing_func, {}, n_pts: 100) }.to raise_error(ForChrisLibError)
+    end
   end
 
   describe '#skew_normal_rand' do
     it 'delegates to cdf_calc and returns probability' do
       allow(self).to receive(:cdf_calc).and_return(0.75)
       expect(skew_normal_rand(0)).to eq(0.75)
+    end
+  end
+
+  describe '#skew_normal_rand_a' do
+    it 'raises when sample count is invalid' do
+      expect { skew_normal_rand_a(0, 0) }.to raise_error(ForChrisLibError)
     end
   end
 
@@ -332,6 +410,10 @@ RSpec.describe ForChrisLib do
       allow(self).to receive(:rand).and_return(-1)
       cdf = [[0, 0], [1, 0.4], [2, 1.0]]
       expect(inverse_transform_rand(cdf)).to eq(0)
+    end
+
+    it 'validates cdf structure' do
+      expect { inverse_transform_rand([1, 2, 3]) }.to raise_error(ForChrisLibError)
     end
   end
 
@@ -375,12 +457,20 @@ RSpec.describe ForChrisLib do
         result = values.bin_shift(-2)
         expect(result).to eq([12, 5, 2, 1, 0, 0])
       end
+
+      it 'raises when shift is not numeric' do
+        expect { values.bin_shift('bad') }.to raise_error(ForChrisLibError)
+      end
     end
 
     describe '#bin_int_shift' do
       it 'wraps integer shifts right and left' do
         expect(values.bin_int_shift(2)).to eq([0, 0, 3, 4, 5, 8])
         expect(values.bin_int_shift(-2)).to eq([12, 5, 2, 1, 0, 0])
+      end
+
+      it 'raises when shift is not an Integer' do
+        expect { values.bin_int_shift(1.5) }.to raise_error(ForChrisLibError)
       end
     end
 

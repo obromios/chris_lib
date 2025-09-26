@@ -90,6 +90,38 @@ describe "ChrisMath Module" do
 		it{expect(combinatorial(31,31)).to eq 1}
 		it{expect(combinatorial(8,4)).to eq 70}
 	end
+
+	describe '#gaussian_array input validation' do
+		it 'raises when n is not an Integer' do
+			expect { gaussian_array(1.5) }.to raise_error(ArgumentError)
+		end
+
+		it 'warns and returns empty array when n <= 0' do
+			result = nil
+			expect { result = gaussian_array(0) }.to output(/non-positive sample size/).to_stderr
+			expect(result).to eq([])
+		end
+	end
+
+	describe '#gaussian_rand input validation' do
+		it 'warns and returns mean when std is zero' do
+			value = nil
+			expect { value = gaussian_rand(2, 0) }.to output(/std supplied to gaussian_rand was zero/).to_stderr
+			expect(value).to eq(2)
+		end
+
+		it 'warns and uses absolute value when std is negative' do
+			value = nil
+			expect { value = gaussian_rand(3, -1) }.to output(/std supplied to gaussian_rand was negative/).to_stderr
+			expect(value).to be_a(Float)
+		end
+	end
+
+	describe '#combinatorial_distribution validation' do
+		it 'raises when probability outside 0..1' do
+			expect { combinatorial_distribution(3, 1, 1.5) }.to raise_error(ArgumentError)
+		end
+	end
 	describe "gaussian_rand" do
 	describe "should have the right mean" do
 			let(:mu){1}
