@@ -1,6 +1,7 @@
 # Version Information
 ## v2.2.2
-  -
+  - add many new methods and classes
+  - upgrade to rails 8.0.3
 ## v2.2.1 1db540c 1892023-952
   - Update to rails 7.0.8 for security
 ## v2.2.0 7182eb3 2732023-123
