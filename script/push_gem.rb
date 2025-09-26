@@ -21,7 +21,7 @@ puts 'Push to rubygems, need to enter OTP from Google Authenticator'.colorize(:y
 system "gem push chris_lib-#{ChrisLib::VERSION}.gem"
 puts "pushed v#{ChrisLib::VERSION} to rubygems and github"
 `git tag v#{ChrisLib::VERSION} -m msg`
-`git push --tags`
+`git push origin v#{ChrisLib::VERSION}`
 puts "pushed v#{ChrisLib::VERSION} tag"
 git_sha = `git log --pretty=format:'%h' -n 1`
 puts "Bump version, remove *.gem files, update changelog with #{git_sha} #{time_hash}"
