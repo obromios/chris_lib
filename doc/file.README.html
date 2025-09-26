@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.9.37
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'>
+<h1 id="label-chris_lib">chris_lib</h1>
+
+<p>This is a gem containing an eclectic library of methods. Most of the methods are for scientific computing, but there is a helper for Rspec, extensions to the Date class, and methods for building ruby bash scripts.</p>
+
+<h2 id="label-Installation">Installation</h2>
+
+<p>Add this line to your application’s Gemfile:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>chris_lib</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>git:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://github.com/obromios/chris_lib.git</span><span class='tstring_end'>&#39;</span></span>
+</code></pre>
+
+<p>or use</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>chris_lib</span><span class='tstring_end'>&#39;</span></span>
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre class="code ruby"><code class="ruby">$ bundle
+</code></pre>
+
+<h2 id="label-Usage">Usage</h2>
+
+<h3 id="label-Core+extensions">Core extensions</h3>
+<ul><li>
+<p><code>DateExt</code> extends <code>Date</code> with helpers such as <code>#charmians_format</code> for Australian-style formatting and <code>#us_format_with_weekday</code> for full weekday strings.</p>
+</li><li>
+<p><code>TestAccess</code> ships an RSpec macro (<code>it_should_route_to</code>) that keeps controller access tests terse.</p>
+</li><li>
+<p><code>ChrisMath</code> enriches Ruby core classes (<code>Array</code>, <code>Float</code>, <code>Matrix</code>, <code>Quaternion</code>, etc.) with linear algebra and statistics helpers.</p>
+</li></ul>
+
+<h3 id="label-ForChrisLib+additions">ForChrisLib additions</h3>
+
+<p><code>ForChrisLib</code> bundles the analytical helpers that previously lived in a different project. Include it whenever you need the extras:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>chris_lib</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="ForChrisLib.html" title="ForChrisLib (module)">ForChrisLib</a></span></span>
+
+<span class='id identifier rubyid_outcome'>outcome</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>71</span><span class='comma'>,</span> <span class='int'>69</span><span class='comma'>,</span> <span class='int'>75</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='comment'># =&gt; [0.0, 1.0, 0.0]
+</span>
+<span class='id identifier rubyid_pdf_from_hist'>pdf_from_hist</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>5</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>min:</span> <span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+<span class='comment'># =&gt; {-1=&gt;0.3, 0=&gt;0.5, 1=&gt;0.2}
+</span></code></pre>
+
+<p>Highlights include:</p>
+<ul><li>
+<p><code>ChiSquaredStdErr</code> for quick goodness-of-fit tests from means and standard errors.</p>
+</li><li>
+<p>Histogram tooling (<code>pdf_from_hist</code>, <code>summed_bins_histogram</code>, <code>bin_shift</code>) for exploratory analysis.</p>
+</li><li>
+<p>Weighted statistics (<code>weighted_mean</code>, <code>weighted_sd</code>, <code>weighted_skewness</code>).</p>
+</li><li>
+<p>Numerical integration helpers (<code>simpson</code>, <code>cdf_calc</code>) and inverse-transform sampling utilities.</p>
+</li></ul>
+
+<p>Some helpers depend on optional gems:</p>
+<ul><li>
+<p><code>minimization</code> is used by <code>bias_estimate_by_min</code> unless you inject a custom minimiser.</p>
+</li></ul>
+
+<p>Ruby 3.4 treats many standard libraries (<code>base64</code>, <code>bigdecimal</code>, <code>logger</code>, <code>mutex_m</code>, <code>ostruct</code>, <code>date</code>) as default gems. If you see warnings about them not being loaded, add the corresponding gems to your Gemfile or run <code>gem pristine &lt;name&gt;</code> inside your Ruby 3.4.2 gemset.</p>
+
+<h3 id="label-Documentation">Documentation</h3>
+
+<p>YARD annotations are included throughout the gem. Generate HTML docs with:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_exec'>exec</span> <span class='id identifier rubyid_yard'>yard</span> <span class='id identifier rubyid_doc'>doc</span>
+<span class='id identifier rubyid_open'>open</span> <span class='id identifier rubyid_doc'>doc</span><span class='op'>/</span><span class='id identifier rubyid_index'>index</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span>
+</code></pre>
+
+<p>For a live server:</p>
+
+<pre class="code ruby"><code class="ruby">bundle exec yard server --reload --server webrick
+</code></pre>
+
+<p>Then browse to <a href="http://localhost:8808">localhost:8808</a>.</p>
+
+<h2 id="label-Contributing">Contributing</h2>
+
+<p>There is no need to contribute, but in case you feel you have to…</p>
+<ol><li>
+<p>Fork it ( <a href="https://github.com/[my-github-username]/chris_lib/fork">github.com/[my-github-username]/chris_lib/fork</a> )</p>
+</li><li>
+<p>Create your feature branch (<code>git checkout -b my-new-feature</code>)</p>
+</li><li>
+<p>Commit your changes (<code>git commit -am &#39;Add some feature&#39;</code>)</p>
+</li><li>
+<p>Push to the branch (<code>git push origin my-new-feature</code>)</p>
+</li><li>
+<p>Create a new Pull Request</p>
+</li></ol>
+</div></div>
+
+      <div id="footer">
+  Generated on Fri Sep 26 12:01:38 2025 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.37 (ruby-3.4.2).
+</div>
+
+    </div>
+  </body>
+</html>

@@ -6,7 +6,7 @@ rescue LoadError, NoMethodError => e
   warn "Bundler setup skipped: #{e.message}"
 end
 
-%w[base64 bigdecimal logger mutex_m ostruct].each do |lib|
+%w[base64 bigdecimal logger ostruct].each do |lib|
   begin
     require lib
   rescue LoadError => e

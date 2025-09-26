@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'dotenv'
   s.add_dependency 'quaternion'
   s.add_dependency 'minimization'
+  s.add_dependency 'ostruct'
   s.add_development_dependency 'rails', '~> 8.0'
   s.add_development_dependency 'actionpack'
   s.add_development_dependency 'actionview'
@@ -31,4 +32,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pry'
   s.add_development_dependency 'colorize'
   s.add_development_dependency 'matrix'
+  s.add_development_dependency 'yard'
+  s.add_development_dependency 'webrick'
 end

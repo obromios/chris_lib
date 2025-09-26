@@ -3,6 +3,7 @@
   - document existing ChrisLib helpers with YARD-style comments
   - add ForChrisLib module (minus IntFair) and comprehensive specs
   - replace statistics2 dependency with pure Ruby chi-squared survival function
+  - declare ostruct as a runtime dependency and yard as a development dependency
   - relax spec helper to tolerate missing default gems on Ruby 3.4
   - expand README with ForChrisLib usage and optional dependency guidance
 ## v2.2.2

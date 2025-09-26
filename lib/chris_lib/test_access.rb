@@ -1,7 +1,7 @@
 module TestAccess
 	# An RSpec helper that verifies protected controller actions redirect to a login path.
   #
-  # Include the module and call {#it_should_route_to} with the protected actions:
+  # Include the module and call {.it_should_route_to} with the protected actions:
   #
   #   it_should_route_to('login_path', [:edit, :update])
   #

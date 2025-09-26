@@ -18,6 +18,23 @@ And then execute:
 
     $ bundle
 
+### Documentation
+
+YARD annotations are included throughout the gem. Generate HTML docs with:
+
+```bash
+bundle exec yard doc
+open doc/index.html
+```
+
+For a live server:
+
+```bash
+bundle exec yard server --reload --server webrick
+```
+
+Then browse to http://localhost:8808.
+
 ## Usage
 
 ### Core extensions
@@ -28,7 +45,7 @@ And then execute:
 
 ### ForChrisLib additions
 
-`ForChrisLib` bundles the analytical helpers that previously lived in golf_lab. Include it whenever you need the extras:
+`ForChrisLib` bundles the analytical helpers that previously lived in a different project. Include it whenever you need the extras:
 
 ```ruby
 require 'chris_lib'
