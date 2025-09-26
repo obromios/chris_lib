@@ -1,5 +1,6 @@
 require 'ostruct'
 
+# Error raised when ForChrisLib encounters invalid input or missing dependencies.
 ForChrisLibError = Class.new(StandardError) unless defined?(ForChrisLibError)
 
 # Aggregated analytical helpers formerly housed in golf_lab.
@@ -706,10 +707,14 @@ Array.class_eval do
       raise "not implemented for #{dimension} dimensions"
     end
 
-    return sum if dimension == 1
-    return sum.sum if dimension == 2
-
-    sum.sum.sum
+    case dimension
+    when 1
+      sum
+    when 2
+      sum { |row| row.sum }
+    when 3
+      sum { |plane| plane.sum { |row| row.sum } }
+    end
   end
 
   # Discrete probability density function derived from sample counts.

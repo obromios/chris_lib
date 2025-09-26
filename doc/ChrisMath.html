@@ -88,7 +88,18 @@
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Numerically focused helpers and distribution utilities.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -325,16 +336,16 @@
       <pre class="lines">
 
 
-227
 228
 229
 230
 231
 232
-233</pre>
+233
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/chris_math.rb', line 227</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/chris_math.rb', line 228</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bi_gaussian_rand'>bi_gaussian_rand</span>
   <span class='id identifier rubyid_u1'>u1</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -413,13 +424,13 @@
       <pre class="lines">
 
 
-292
 293
 294
-295</pre>
+295
+296</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/chris_math.rb', line 292</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/chris_math.rb', line 293</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_combinatorial'>combinatorial</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span>
   <span class='comment'>#from rosetta code
@@ -529,7 +540,6 @@
       <pre class="lines">
 
 
-266
 267
 268
 269
@@ -541,10 +551,11 @@
 275
 276
 277
-278</pre>
+278
+279</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/chris_math.rb', line 266</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/chris_math.rb', line 267</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_combinatorial_distribution'>combinatorial_distribution</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span><span class='id identifier rubyid_r'>r</span><span class='comma'>,</span><span class='id identifier rubyid_p'>p</span><span class='rparen'>)</span>
   <span class='comment'># probability that r out n or greater hits with the 
@@ -618,13 +629,13 @@
       <pre class="lines">
 
 
-283
 284
 285
-286</pre>
+286
+287</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/chris_math.rb', line 283</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/chris_math.rb', line 284</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_factorial'>factorial</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span>
   <span class='comment'>#from rosetta code
@@ -701,16 +712,16 @@
       <pre class="lines">
 
 
-217
 218
 219
 220
 221
 222
-223</pre>
+223
+224</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/chris_math.rb', line 217</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/chris_math.rb', line 218</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_gaussian_array'>gaussian_array</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
   <span class='lparen'>(</span><span class='int'>1</span><span class='op'>..</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span>
@@ -789,15 +800,15 @@
       <pre class="lines">
 
 
-239
 240
 241
 242
 243
-244</pre>
+244
+245</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/chris_math.rb', line 239</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/chris_math.rb', line 240</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_gaussian_rand'>gaussian_rand</span><span class='lparen'>(</span><span class='id identifier rubyid_mean'>mean</span><span class='comma'>,</span><span class='id identifier rubyid_std'>std</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_u1'>u1</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -882,16 +893,16 @@
       <pre class="lines">
 
 
-251
 252
 253
 254
 255
 256
-257</pre>
+257
+258</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/chris_math.rb', line 251</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/chris_math.rb', line 252</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_std'>std</span><span class='lparen'>(</span><span class='id identifier rubyid_values'>values</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
@@ -910,7 +921,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Sep 26 12:01:38 2025 by
+  Generated on Fri Sep 26 12:19:42 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.4.2).
 </div>

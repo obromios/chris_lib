@@ -207,6 +207,7 @@ Float.class_eval do
   end
 end
 
+# Numerically focused helpers and distribution utilities.
 module ChrisMath
   
   include Math

@@ -6,8 +6,11 @@ module TestAccess
   #   it_should_route_to('login_path', [:edit, :update])
   #
   # Optionally provide a `flash_message` expectation.
+	# @!visibility private
 	module ExampleMethods
 	end
+
+	# @!visibility private
 	module ExampleGroupMethods
 	  # Define a set of expectations that each action redirects to the provided path.
 	  # @param path [String] helper method name that resolves to the desired redirect URL
@@ -36,6 +39,7 @@ module TestAccess
 			end
 		end
   end
+  # @!visibility private
   def self.included(receiver)
     receiver.extend         ExampleGroupMethods
     receiver.send :include, ExampleMethods

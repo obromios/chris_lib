@@ -907,7 +907,6 @@
       <pre class="lines">
 
 
-252
 253
 254
 255
@@ -917,10 +916,11 @@
 259
 260
 261
-262</pre>
+262
+263</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 252</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 253</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_acf'>acf</span><span class='lparen'>(</span><span class='id identifier rubyid_x_a'>x_a</span><span class='comma'>,</span> <span class='id identifier rubyid_lag'>lag</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_x_a'>x_a</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
@@ -1016,17 +1016,17 @@
       <pre class="lines">
 
 
-448
 449
 450
 451
 452
 453
 454
-455</pre>
+455
+456</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 448</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 449</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_arbitrary_cdf_a'>arbitrary_cdf_a</span><span class='lparen'>(</span><span class='id identifier rubyid_func'>func</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='label'>n_samples:</span> <span class='int'>100</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_width'>width</span> <span class='op'>=</span> <span class='float'>8.0</span>
@@ -1121,7 +1121,6 @@
       <pre class="lines">
 
 
-184
 185
 186
 187
@@ -1136,10 +1135,11 @@
 196
 197
 198
-199</pre>
+199
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 184</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 185</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bias_estimate_by_min'>bias_estimate_by_min</span><span class='lparen'>(</span><span class='id identifier rubyid_store'>store</span><span class='comma'>,</span> <span class='label'>win_loss_calculator:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>minimizer_class:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_win_loss'>win_loss</span> <span class='op'>=</span> <span class='id identifier rubyid_win_loss_calculator'>win_loss_calculator</span> <span class='op'>||</span> <span class='id identifier rubyid_default_win_loss_calculator'>default_win_loss_calculator</span>
@@ -1277,15 +1277,15 @@
       <pre class="lines">
 
 
-476
 477
 478
 479
 480
-481</pre>
+481
+482</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 476</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 477</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cdf_calc'>cdf_calc</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_func'>func</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='label'>mu:</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>sigma:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>n_pts:</span> <span class='int'>100</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>n_pts must be even (received n_pts=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_n_pts'>n_pts</span><span class='embexpr_end'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_n_pts'>n_pts</span><span class='period'>.</span><span class='id identifier rubyid_even?'>even?</span>
@@ -1337,12 +1337,12 @@
       <pre class="lines">
 
 
-344
 345
-346</pre>
+346
+347</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 344</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 345</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cdf_from_bins'>cdf_from_bins</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_pdf_from_bins'>pdf_from_bins</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_cdf_from_pdf'>cdf_from_pdf</span>
@@ -1396,12 +1396,12 @@
       <pre class="lines">
 
 
-495
 496
-497</pre>
+497
+498</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 495</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 496</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_computer_name_short'>computer_name_short</span>
   <span class='backtick'>`</span><span class='tstring_content'>hostname</span><span class='tstring_end'>`</span></span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='int'>9</span><span class='rbracket'>]</span>
@@ -1491,14 +1491,14 @@
       <pre class="lines">
 
 
-488
 489
 490
 491
-492</pre>
+492
+493</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 488</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 489</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delimit'>delimit</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_delimiter'>delimiter</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_separator'>separator</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_parts'>parts</span> <span class='op'>=</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -1575,7 +1575,6 @@
       <pre class="lines">
 
 
-169
 170
 171
 172
@@ -1583,10 +1582,11 @@
 174
 175
 176
-177</pre>
+177
+178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 170</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fvu'>fvu</span><span class='lparen'>(</span><span class='label'>y_hat_a:</span><span class='comma'>,</span> <span class='label'>y_a:</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TGM - y_hat_a must be greater than 1</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_y_hat_a'>y_hat_a</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&lt;</span> <span class='int'>2</span>
@@ -1672,7 +1672,6 @@
       <pre class="lines">
 
 
-238
 239
 240
 241
@@ -1680,10 +1679,11 @@
 243
 244
 245
-246</pre>
+246
+247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 238</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 239</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inc_m2_var'>inc_m2_var</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_accumulator'>accumulator</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_mean'>mean</span><span class='comma'>,</span> <span class='id identifier rubyid_m2'>m2</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_accumulator'>accumulator</span>
@@ -1738,13 +1738,13 @@
       <pre class="lines">
 
 
-438
 439
 440
-441</pre>
+441
+442</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 438</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 439</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_interpolate'>interpolate</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_x_L'>x_L</span><span class='comma'>,</span> <span class='id identifier rubyid_x_U'>x_U</span><span class='comma'>,</span> <span class='id identifier rubyid_y_L'>y_L</span><span class='comma'>,</span> <span class='id identifier rubyid_y_U'>y_U</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_m'>m</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_y_U'>y_U</span> <span class='op'>-</span> <span class='id identifier rubyid_y_L'>y_L</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id identifier rubyid_x_U'>x_U</span> <span class='op'>-</span> <span class='id identifier rubyid_x_L'>x_L</span><span class='rparen'>)</span>
@@ -1809,7 +1809,6 @@
       <pre class="lines">
 
 
-423
 424
 425
 426
@@ -1820,10 +1819,11 @@
 431
 432
 433
-434</pre>
+434
+435</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 423</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 424</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inverse_transform_rand'>inverse_transform_rand</span><span class='lparen'>(</span><span class='id identifier rubyid_cdf_a'>cdf_a</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_p_a'>p_a</span> <span class='op'>=</span> <span class='id identifier rubyid_cdf_a'>cdf_a</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pair'>pair</span><span class='op'>|</span> <span class='id identifier rubyid_pair'>pair</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
@@ -1896,12 +1896,12 @@
       <pre class="lines">
 
 
-362
 363
-364</pre>
+364
+365</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 362</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 363</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_normal_cdf'>normal_cdf</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='float'>0.5</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='int'>1</span> <span class='op'>+</span> <span class='id identifier rubyid_erf'>erf</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span> <span class='op'>/</span> <span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -1983,15 +1983,15 @@
       <pre class="lines">
 
 
-352
 353
 354
 355
 356
-357</pre>
+357
+358</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 352</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 353</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_normal_pdf'>normal_pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>mu:</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>sigma:</span> <span class='int'>1</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -2063,15 +2063,15 @@
       <pre class="lines">
 
 
-13
 14
 15
 16
 17
-18</pre>
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_outcome'>outcome</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_s_min'>s_min</span> <span class='op'>=</span> <span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
@@ -2151,16 +2151,16 @@
       <pre class="lines">
 
 
-386
 387
 388
 389
 390
 391
-392</pre>
+392
+393</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 386</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 387</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parabola'>parabola</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>a:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>b:</span> <span class='int'>3</span><span class='comma'>,</span> <span class='label'>c:</span> <span class='int'>4</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -2213,13 +2213,13 @@
       <pre class="lines">
 
 
-337
 338
 339
-340</pre>
+340
+341</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 337</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 338</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pdf_from_bins'>pdf_from_bins</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_total'>total</span> <span class='op'>=</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='period'>.</span><span class='id identifier rubyid_nonzero?'>nonzero?</span> <span class='op'>||</span> <span class='int'>1</span>
@@ -2297,13 +2297,13 @@
       <pre class="lines">
 
 
-205
 206
 207
-208</pre>
+208
+209</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 205</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 206</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pdf_from_hist'>pdf_from_hist</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='label'>min:</span> <span class='int'>0</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_total'>total</span> <span class='op'>=</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='period'>.</span><span class='id identifier rubyid_nonzero?'>nonzero?</span> <span class='op'>||</span> <span class='int'>1</span>
@@ -2419,7 +2419,6 @@
       <pre class="lines">
 
 
-401
 402
 403
 404
@@ -2427,10 +2426,11 @@
 406
 407
 408
-409</pre>
+409
+410</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 401</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 402</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_simpson'>simpson</span><span class='lparen'>(</span><span class='id identifier rubyid_func'>func</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>n must be even (received n=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_n'>n</span><span class='embexpr_end'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_even?'>even?</span>
@@ -2485,17 +2485,17 @@
       <pre class="lines">
 
 
-459
 460
 461
 462
 463
 464
 465
-466</pre>
+466
+467</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 459</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 460</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_skew_normal_cdf_a'>skew_normal_cdf_a</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='label'>n_samples:</span> <span class='int'>100</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_width'>width</span> <span class='op'>=</span> <span class='float'>8.0</span>
@@ -2577,14 +2577,14 @@
       <pre class="lines">
 
 
-370
 371
 372
 373
-374</pre>
+374
+375</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 370</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 371</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_skew_normal_pdf'>skew_normal_pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>alpha:</span> <span class='int'>0</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>alpha:</span> <span class='int'>0</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -2635,12 +2635,12 @@
       <pre class="lines">
 
 
-378
 379
-380</pre>
+380
+381</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 378</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 379</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_skew_normal_rand'>skew_normal_rand</span><span class='lparen'>(</span><span class='id identifier rubyid__x'>_x</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>alpha:</span> <span class='int'>0</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_cdf_calc'>cdf_calc</span><span class='lparen'>(</span><span class='id identifier rubyid_rand'>rand</span><span class='comma'>,</span> <span class='symbol'>:normal_pdf</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>mu:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>sigma:</span> <span class='int'>4</span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>n_pts:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>sigma:</span> <span class='int'>4</span><span class='comma'>,</span> <span class='label'>mu:</span> <span class='int'>2</span><span class='rparen'>)</span>
@@ -2715,13 +2715,13 @@
       <pre class="lines">
 
 
-415
 416
 417
-418</pre>
+418
+419</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 415</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 416</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_skew_normal_rand_a'>skew_normal_rand_a</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='id identifier rubyid_alpha'>alpha</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_cdf_a'>cdf_a</span> <span class='op'>=</span> <span class='id identifier rubyid_arbitrary_cdf_a'>arbitrary_cdf_a</span><span class='lparen'>(</span><span class='symbol'>:skew_normal_pdf</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>alpha:</span> <span class='id identifier rubyid_alpha'>alpha</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
@@ -2797,7 +2797,6 @@
       <pre class="lines">
 
 
-214
 215
 216
 217
@@ -2815,10 +2814,11 @@
 229
 230
 231
-232</pre>
+232
+233</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 214</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 215</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_summed_bins_histogram'>summed_bins_histogram</span><span class='lparen'>(</span><span class='id identifier rubyid_x_y'>x_y</span><span class='comma'>,</span> <span class='id identifier rubyid_n_bins'>n_bins</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x_a'>x_a</span> <span class='op'>=</span> <span class='id identifier rubyid_x_y'>x_y</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
@@ -2888,12 +2888,12 @@
       <pre class="lines">
 
 
-161
 162
-163</pre>
+163
+164</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 162</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_test'>test</span>
   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>here</span><span class='tstring_end'>&#39;</span></span>
@@ -2942,7 +2942,6 @@
       <pre class="lines">
 
 
-311
 312
 313
 314
@@ -2951,10 +2950,11 @@
 317
 318
 319
-320</pre>
+320
+321</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 311</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 312</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weighted_m_3'>weighted_m_3</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_mu'>mu</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span>
@@ -3010,7 +3010,6 @@
       <pre class="lines">
 
 
-324
 325
 326
 327
@@ -3019,10 +3018,11 @@
 330
 331
 332
-333</pre>
+333
+334</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 324</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 325</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weighted_m_4'>weighted_m_4</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_mu'>mu</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span>
@@ -3119,17 +3119,17 @@
       <pre class="lines">
 
 
-269
 270
 271
 272
 273
 274
 275
-276</pre>
+276
+277</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 269</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 270</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weighted_mean'>weighted_mean</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
@@ -3235,7 +3235,6 @@
       <pre class="lines">
 
 
-284
 285
 286
 287
@@ -3243,10 +3242,11 @@
 289
 290
 291
-292</pre>
+292
+293</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 284</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 285</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weighted_sd'>weighted_sd</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_mu'>mu</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span> <span class='op'>&lt;</span> <span class='int'>2</span>
@@ -3353,17 +3353,17 @@
       <pre class="lines">
 
 
-300
 301
 302
 303
 304
 305
 306
-307</pre>
+307
+308</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 300</span>
+      <pre class="code"><span class="info file"># File 'lib/chris_lib/for_chris_lib.rb', line 301</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weighted_skewness'>weighted_skewness</span><span class='lparen'>(</span><span class='id identifier rubyid_bins'>bins</span><span class='comma'>,</span> <span class='id identifier rubyid_mu'>mu</span><span class='comma'>,</span> <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_bins'>bins</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span>
@@ -3383,7 +3383,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Sep 26 12:01:38 2025 by
+  Generated on Fri Sep 26 12:19:42 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.4.2).
 </div>

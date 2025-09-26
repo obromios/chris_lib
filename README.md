@@ -51,9 +51,6 @@ Then browse to http://localhost:8808.
 require 'chris_lib'
 include ForChrisLib
 
-outcome([71, 69, 75])
-# => [0.0, 1.0, 0.0]
-
 pdf_from_hist([3, 5, 2], min: -1)
 # => {-1=>0.3, 0=>0.5, 1=>0.2}
 ```

@@ -147,6 +147,12 @@ RSpec.describe ForChrisLib do
     end
   end
 
+  describe '#test' do
+    it 'returns sentinel string' do
+      expect(test).to eq('here')
+    end
+  end
+
   describe '#bias_estimate_by_min' do
     class StubStore
       attr_reader :histogram, :min, :max
@@ -257,6 +263,12 @@ RSpec.describe ForChrisLib do
       mu = weighted_mean(bins)
       expect(weighted_skewness(bins, mu).round(4)).to eq(-0.4763)
     end
+
+    it 'computes weighted third and fourth moments' do
+      mu = weighted_mean(bins)
+      expect(weighted_m_3(bins, mu)).to be_within(1e-6).of(-0.259259)
+      expect(weighted_m_4(bins, mu)).to be_within(1e-6).of(0.629629)
+    end
   end
 
   describe '#pdf_from_bins/#cdf_from_bins' do
@@ -280,6 +292,28 @@ RSpec.describe ForChrisLib do
   describe '#normal_cdf' do
     it 'approximates standard normal CDF' do
       expect(normal_cdf(0)).to eq(0.5)
+    end
+  end
+
+  describe '#skew_normal_cdf_a' do
+    it 'samples skew normal cdf' do
+      result = skew_normal_cdf_a({ alpha: 0.5 }, n_samples: 5)
+      expect(result.length).to eq(5)
+      expect(result.first.size).to eq(2)
+    end
+  end
+
+  describe '#cdf_calc' do
+    it 'integrates normal pdf to cdf' do
+      value = cdf_calc(0, :normal_pdf, { mu: 0, sigma: 1 }, n_pts: 100)
+      expect(value).to be_within(5e-3).of(0.5)
+    end
+  end
+
+  describe '#skew_normal_rand' do
+    it 'delegates to cdf_calc and returns probability' do
+      allow(self).to receive(:cdf_calc).and_return(0.75)
+      expect(skew_normal_rand(0)).to eq(0.75)
     end
   end
 
@@ -371,6 +405,26 @@ RSpec.describe ForChrisLib do
       counts = { '-1.2' => 3, '0.0' => 5, '40.3' => 2 }
       expect(counts.male_ga_hist[-1]).to eq(3)
       expect(counts.female_male_ga_hist[40]).to eq(2)
+    end
+  end
+
+  describe 'Array dimension helpers' do
+    it 'computes dimension depth' do
+      expect([[1], [2, 3]].dimension).to eq(2)
+      expect([[[1]]].dimension).to eq(3)
+    end
+
+    it 'sums arrays up to three dimensions' do
+      expect([1, 2, 3].total).to eq(6)
+      expect([[1, 2], [3, 4]].total).to eq(10)
+      expect([[[1], [2]], [[3], [4]]].total).to eq(10)
+    end
+  end
+
+  describe '#computer_name_short' do
+    it 'reads hostname and truncates' do
+      allow(self).to receive(:`).and_return("homelab-node\n")
+      expect(computer_name_short).to eq('homelab-no')
     end
   end
 end
