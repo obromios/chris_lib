@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   # rubocop:enable LineLength
   s.add_dependency 'dotenv'
   s.add_dependency 'quaternion'
-  s.add_development_dependency 'rails'
+  s.add_development_dependency 'rails', '~> 8.0'
   s.add_development_dependency 'actionpack'
   s.add_development_dependency 'actionview'
   s.add_development_dependency 'rspec'
