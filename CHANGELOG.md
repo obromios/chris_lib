@@ -1,5 +1,5 @@
 # Version Information
-## Unreleased
+## v2.3.0
   - document existing ChrisLib helpers with YARD-style comments
   - add ForChrisLib module (minus IntFair) and comprehensive specs
   - replace statistics2 dependency with pure Ruby chi-squared survival function
