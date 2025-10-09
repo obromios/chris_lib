@@ -1,12 +1,15 @@
 # Version Information
-## v2.3.0
+## 2.3.0
+  - Upgrade rack to 3.2.2 for security
+  - Upgrade uri to 1.0.4 for security
+## v2.2.3 9ce743b Thu Oct 2 12:17:12
   - document existing ChrisLib helpers with YARD-style comments
   - add ForChrisLib module (minus IntFair) and comprehensive specs
   - replace statistics2 dependency with pure Ruby chi-squared survival function
   - declare ostruct as a runtime dependency and yard as a development dependency
   - relax spec helper to tolerate missing default gems on Ruby 3.4
   - expand README with ForChrisLib usage and optional dependency guidance
-## v2.2.2
+## v2.2.2 11beca31171b64 Fri Sep 26 16:15:14 2025
   - add many new methods and classes
   - upgrade to rails 8.0.3
 ## v2.2.1 1db540c 1892023-952
