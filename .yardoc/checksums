@@ -1,5 +1,5 @@
 lib/chris_lib.rb c6846cdadaf742e5f675010d954a51e9a8dd676c
-lib/chris_lib/version.rb ede3059784fc75839433b6cee6d6c7bb759ef5a3
+lib/chris_lib/version.rb e645aee5ca86b8972f7d260e6a1c0dc8bd9c8500
 lib/chris_lib/date_ext.rb 88e5543b4943d7c99461ebb290ba54237b6d7d41
 lib/chris_lib/chris_math.rb 6ccd3309a11c1e099466ec0d3c60494a3e6b2e31
 lib/chris_lib/test_access.rb a8c997cca5ae9b8bdb2f6b58788e6cbf84bc8e2d
