@@ -24,4 +24,4 @@ puts "pushed v#{ChrisLib::VERSION} to rubygems and github"
 `git push origin v#{ChrisLib::VERSION}`
 puts "pushed v#{ChrisLib::VERSION} tag"
 git_sha = `git log --pretty=format:'%h' -n 1`
-puts "Bump version, remove *.gem files, update changelog with #{git_sha} #{time_hash}"
+puts "Bump version, remove old .ruby-version files, update changelog with #{git_sha} #{time_hash}"

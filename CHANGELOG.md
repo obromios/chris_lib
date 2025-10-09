@@ -1,5 +1,7 @@
 # Version Information
-## 2.3.0
+## v2.3.1
+  -
+## 2.3.0 1b316a6 8102025-1715
   - Upgrade rack to 3.2.2 for security
   - Upgrade uri to 1.0.4 for security
 ## v2.2.3 9ce743b Thu Oct 2 12:17:12
