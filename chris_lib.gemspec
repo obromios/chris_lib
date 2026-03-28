@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'quaternion'
   s.add_dependency 'minimization'
   s.add_dependency 'ostruct'
-  s.add_development_dependency 'rails', '~> 8.0'
+  s.add_development_dependency 'rails', '~> 8.0.4', '>= 8.0.4.1'
   s.add_development_dependency 'actionpack'
   s.add_development_dependency 'actionview'
   s.add_development_dependency 'rspec'
