@@ -17,6 +17,23 @@ def run!(*command)
   abort("Command failed: #{command.join(' ')}")
 end
 
+def time_hash
+  time = Time.now
+  "#{time.day}#{time.month}#{time.year}-#{time.hour}#{format('%02d', time.min)}"
+end
+
+def latest_commit_summary
+  `git log -1 --pretty=format:%s`.strip
+end
+
+def changelog_lines(version)
+  git_sha = `git log --pretty=format:%h -n 1`.strip
+  [
+    "## v#{version} #{git_sha} #{time_hash}",
+    "  - #{latest_commit_summary}"
+  ]
+end
+
 version = ChrisLib::VERSION
 gem_file = "chris_lib-#{version}.gem"
 tag_name = "v#{version}"
@@ -40,3 +57,5 @@ end
 run!('git', 'push', 'origin', tag_name)
 
 puts "Published #{gem_file} and pushed #{tag_name}"
+puts 'Update CHANGELOG.md with:'
+puts changelog_lines(version)

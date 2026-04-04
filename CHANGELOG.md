@@ -1,6 +1,8 @@
 # Version Information
-## v2.3.1
-  -
+## v2.3.2 323ea55 442026-1555
+  - Upgrade rack to 3.2.6 for security
+## v2.3.1 eaf7ba1 Mar 28 14:55:39 2026 +1100
+  - Upgrade Rails security dependencies
 ## 2.3.0 1b316a6 8102025-1715
   - Upgrade rack to 3.2.2 for security
   - Upgrade uri to 1.0.4 for security
