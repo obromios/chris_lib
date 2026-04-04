@@ -17,6 +17,11 @@
 - If the local version in `lib/chris_lib/version.rb` is not greater than the published version, do not advise running the release script yet.
 - In that case, tell the user to bump the version first, then rebuild and release.
 
+## Commit Messages
+
+- For security dependency fixes, use commit messages of the form:
+  - `Upgrade <gemname> to <version> for security`
+
 ## Release Script
 
 - `script/push_gem.rb` is intended for the final release steps only:
